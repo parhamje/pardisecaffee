@@ -12,15 +12,10 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
-  font-family: "Vazirmatn", sans-serif;
 }
 html,body {
   margin: 0;
   padding: 0;
-  /* background: url(../img/OIP.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
   background-color: rgb(50, 20, 23) !important;
   font-family: "Vazirmatn", sans-serif;
 }
@@ -285,6 +280,9 @@ html,body {
   margin-top: 5px;
 } 
 @media only screen and (max-width: 768px) {
+  *{
+    font-family: 'Vazirmatn', sans-serif;
+  }
   .navbar-container {
       display: flex;
       justify-content: center;
