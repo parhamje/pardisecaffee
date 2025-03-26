@@ -5,7 +5,10 @@
     --light: #F5F5DC;
     --dark: #382613;
 }
-
+@font-face {
+    font-family: "Vazirmatn";
+    src: url(../fonts/Vazirmatn-Regular.woff2);
+  }
 * {
     margin: 0;
     padding: 0;

@@ -16,6 +16,10 @@
     --warning-color: #f39c12;
     --info-color: #3498db;
   }
+  @font-face {
+    font-family: "Vazirmatn";
+    src: url(../fonts/Vazirmatn-Regular.woff2);
+  }
   *{
     font-family: "Vazirmatn", sans-serif;
   }
