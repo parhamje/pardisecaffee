@@ -1,0 +1,108 @@
+:root {
+    --primary-bg: rgb(50, 20, 23);
+    --secondary-bg: #f3e0c5;
+    --accent-color: #a67c52;
+    --accent-hover: #8a6240;
+    --text-light: #ffffff;
+    --text-dark: #321417;
+    --border-color: rgba(166, 124, 82, 0.3);
+    --scrollbar-bg: #321417;
+    --scrollbar-thumb: #a67c52;
+    --scrollbar-thumb-hover: #8a6240;
+    --card-bg: rgba(243, 224, 197, 0.9);
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --info-color: #3498db;
+  }
+.order-management {
+    background: var(--primary-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: auto;
+    font-family: "Vazirmatn", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filters label {
+    font-weight: bold;
+}
+
+.filters select, .filters input {
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.status-filter{
+    margin-right: -250px;
+    margin-top: -10px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: var(--primary-bg);
+    font-family: "Vazirmatn", sans-serif;
+    color: white;
+    width: 200px;
+}
+.status-filter option{
+    padding: 8px;
+    border-radius: 15px;
+}
+.date-filter{
+    position: relative;
+    left: 250px;
+    top: -5px;
+    padding: 8px;
+    border-radius: 50%;
+    width: 150px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+td button {
+    padding: 5px 10px;
+    background-color: #38ada9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #218c74;
+}

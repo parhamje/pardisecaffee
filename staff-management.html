@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/staff-management.css">
+    <title>مدیریت کارکنان - کافه پاردایس</title>
+    
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo.png" alt="Logo">
+            <h2>Admin Panel</h2>
+        </div>
+        <div class="sidebar-menu">
+            <a href="admin.html" class="menu-item"><i class="fa fa-tachometer-alt"></i> داشبورد</a>
+            <a href="menu-management.html" class="menu-item"><i class="fa fa-coffee"></i> مدیریت منو</a>
+            <a href="orders-management.html" class="menu-item"><i class="fa fa-shopping-cart"></i> مدیریت سفارشات</a>
+            <a href="inventory-tracking.html" class="menu-item"><i class="fa fa-box"></i> پیگیری موجودی</a>
+            <a href="staff-management.html" class="menu-item active"><i class="fa fa-users"></i> مدیریت کارکنان</a>
+            <!-- <a href="promotions-management.html" class="menu-item"><i class="fa fa-tags"></i> مدیریت تخفیفات</a> -->
+            <a href="customer-feedback.html" class="menu-item"><i class="fa fa-comments"></i> بازخورد مشتریان</a>
+            <a href="settings.html" class="menu-item"><i class="fa fa-cog"></i> تنظیمات</a>
+        </div>
+        <div class="sidebar-footer">
+            <p>© 2025 Coffee Shop</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>مدیریت باریستاها و برنامه‌ریزی شیفت‌های کاری</h1>
+            <div class="user-info">
+                <img src="img/user.png" alt="User">
+                <div>
+                    <p class="user-name">مدیر</p>
+                    <p class="user-role">ادمین</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <header>
+                <i class="fa-solid fa-mug-hot coffee-icon"></i>
+                <h1>سیستم مدیریت کارکنان کافی شاپ</h1>
+                <p>مدیریت باریستاها و برنامه‌ریزی شیفت‌های کاری</p>
+            </header>
+            
+            <div class="dashboard">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-staff">5</h3>
+                        <p>کارمندان</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="active-staff">3</h3>
+                        <p>کارمندان فعال</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-calendar-week"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="weekly-shifts">14</h3>
+                        <p>شیفت‌های هفتگی</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-user-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="vacation-staff">1</h3>
+                        <p>کارمندان در مرخصی</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab active" data-tab="staff-tab">مدیریت کارمندان</button>
+                <button class="tab" data-tab="schedule-tab">برنامه شیفت هفتگی</button>
+            </div>
+            
+            <!-- Staff Management Tab -->
+            <div class="tab-content active" id="staff-tab">
+                <div class="controls">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="جستجوی کارمند...">
+                        <i class="fa-solid fa-search"></i>
+                    </div>
+                    <button class="btn btn-primary" id="addStaffBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        افزودن کارمند جدید
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2>لیست کارمندان</h2>
+                    </div>
+                    <div class="card-body">
+                        <div style="overflow-x: auto;">
+                            <table class="staff-table">
+                                <thead>
+                                    <tr>
+                                        <th>نام و نام خانوادگی</th>
+                                        <th>سمت</th>
+                                        <th>شماره تماس</th>
+                                        <th>تاریخ استخدام</th>
+                                        <th>وضعیت</th>
+                                        <th>عملیات</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>علی محمدی</td>
+                                        <td>باریستا ارشد</td>
+                                        <td>09123456789</td>
+                                        <td>1401/03/15</td>
+                                        <td><span class="status-badge status-active">فعال</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn edit-btn"><i class="fa-solid fa-pen"></i></button>
+                                                <button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                                <button class="action-btn shift-btn"><i class="fa-solid fa-calendar-day"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>سارا احمدی</td>
+                                        <td>باریستا</td>
+                                        <td>09198765432</td>
+                                        <td>1401/06/20</td>
+                                        <td><span class="status-badge status-active">فعال</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn edit-btn"><i class="fa-solid fa-pen"></i></button>
+                                                <button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                                <button class="action-btn shift-btn"><i class="fa-solid fa-calendar-day"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>محمد رضایی</td>
+                                        <td>کمک باریستا</td>
+                                        <td>09123457890</td>
+                                        <td>1402/02/10</td>
+                                        <td><span class="status-badge status-vacation">مرخصی</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn edit-btn"><i class="fa-solid fa-pen"></i></button>
+                                                <button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                                <button class="action-btn shift-btn"><i class="fa-solid fa-calendar-day"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>زهرا کریمی</td>
+                                        <td>صندوقدار</td>
+                                        <td>09187654321</td>
+                                        <td>1401/09/05</td>
+                                        <td><span class="status-badge status-active">فعال</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn edit-btn"><i class="fa-solid fa-pen"></i></button>
+                                                <button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                                <button class="action-btn shift-btn"><i class="fa-solid fa-calendar-day"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>امیر حسینی</td>
+                                        <td>کمک باریستا</td>
+                                        <td>09372546981</td>
+                                        <td>1402/04/18</td>
+                                        <td><span class="status-badge status-parttime">پاره وقت</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn edit-btn"><i class="fa-solid fa-pen"></i></button>
+                                                <button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                                <button class="action-btn shift-btn"><i class="fa-solid fa-calendar-day"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="pagination">
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn"><i class="fa-solid fa-angles-left"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weekly Schedule Tab -->
+            <div class="tab-content" id="schedule-tab">
+                <div class="week-selector">
+                    <button id="prevWeek"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="current-week">هفته 15 فروردین - 21 فروردین 1402</div>
+                    <button id="nextWeek"><i class="fa-solid fa-chevron-left"></i></button>
+                </div>
+                
+                <div class="shift-calendar">
+                    <div class="calendar-header">
+                        <div>ساعت</div>
+                        <div>شنبه</div>
+                        <div>یکشنبه</div>
+                        <div>دوشنبه</div>
+                        <div>سه‌شنبه</div>
+                        <div>چهارشنبه</div>
+                        <div>پنجشنبه</div>
+                        <div>جمعه</div>
+                    </div>
+                    
+                    <div class="time-row">
+                        <div class="time-label">8:00 - 12:00</div>
+                        <div class="weekday-shifts">
+                            <div class="day-column" data-day="شنبه">
+                                <div class="shift-item morning">
+                                    <div class="shift-name">علی محمدی</div>
+                                    <div>باریستا ارشد</div>
+                                </div>
+                                <div class="shift-item morning">
+                                    <div class="shift-name">سارا احمدی</div>
+                                    <div>باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="یکشنبه">
+                                <div class="shift-item morning">
+                                    <div class="shift-name">علی محمدی</div>
+                                    <div>باریستا ارشد</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="دوشنبه">
+                                <div class="shift-item morning">
+                                    <div class="shift-name">زهرا کریمی</div>
+                                    <div>صندوقدار</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="سه‌شنبه">
+                                <div class="shift-item morning">
+                                    <div class="shift-name">سارا احمدی</div>
+                                    <div>باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="چهارشنبه">
+                                <div class="shift-item morning">
+                                    <div class="shift-name">علی محمدی</div>
+                                    <div>باریستا ارشد</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="پنجشنبه">
+                                <div class="shift-item morning">
+                                    <div class="shift-name">سارا احمدی</div>
+                                    <div>باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="جمعه">
+                                <div class="shift-item morning">
+                                    <div class="shift-name">امیر حسینی</div>
+                                    <div>کمک باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-row">
+                        <div class="time-label">12:00 - 16:00</div>
+                        <div class="weekday-shifts">
+                            <div class="day-column" data-day="شنبه">
+                                <div class="shift-item afternoon">
+                                    <div class="shift-name">محمد رضایی</div>
+                                    <div>کمک باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="یکشنبه">
+                                <div class="shift-item afternoon">
+                                    <div class="shift-name">زهرا کریمی</div>
+                                    <div>صندوقدار</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="دوشنبه">
+                                <div class="shift-item afternoon">
+                                    <div class="shift-name">علی محمدی</div>
+                                    <div>باریستا ارشد</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="سه‌شنبه">
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="چهارشنبه">
+                                <div class="shift-item afternoon">
+                                    <div class="shift-name">زهرا کریمی</div>
+                                    <div>صندوقدار</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="پنجشنبه">
+                                <div class="shift-item afternoon">
+                                    <div class="shift-name">علی محمدی</div>
+                                    <div>باریستا ارشد</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="جمعه">
+                                <div class="shift-item afternoon">
+                                    <div class="shift-name">سارا احمدی</div>
+                                    <div>باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-row">
+                        <div class="time-label">16:00 - 20:00</div>
+                        <div class="weekday-shifts">
+                            <div class="day-column" data-day="شنبه">
+                                <div class="shift-item evening">
+                                    <div class="shift-name">امیر حسینی</div>
+                                    <div>کمک باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="یکشنبه">
+                                <div class="shift-item evening">
+                                    <div class="shift-name">سارا احمدی</div>
+                                    <div>باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="دوشنبه">
+                                <div class="shift-item evening">
+                                    <div class="shift-name">امیر حسینی</div>
+                                    <div>کمک باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="سه‌شنبه">
+                                <div class="shift-item evening">
+                                    <div class="shift-name">علی محمدی</div>
+                                    <div>باریستا ارشد</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="چهارشنبه">
+                                <div class="shift-item evening">
+                                    <div class="shift-name">امیر حسینی</div>
+                                    <div>کمک باریستا</div>
+                                </div>
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="پنجشنبه">
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="day-column" data-day="جمعه">
+                                <button class="add-shift-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add/Edit Staff Modal -->
+        <div class="modal" id="staffModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>افزودن کارمند جدید</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="staffForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="staff-name">نام و نام خانوادگی</label>
+                                <input type="text" id="staff-name" name="staff-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="staff-phone">شماره تماس</label>
+                                <input type="tel" id="staff-phone" name="staff-phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="staff-position">سمت</label>
+                                <div class="custom-select">
+                                    <select id="staff-position" name="staff-position" required>
+                                        <option value="">انتخاب سمت</option>
+                                        <option value="باریستا ارشد">باریستا ارشد</option>
+                                        <option value="باریستا">باریستا</option>
+                                        <option value="کمک باریستا">کمک باریستا</option>
+                                        <option value="صندوقدار">صندوقدار</option>
+                                        <option value="خدمات">خدمات</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="staff-status">وضعیت</label>
+                                <div class="custom-select">
+                                    <select id="staff-status" name="staff-status" required>
+                                        <option value="">انتخاب وضعیت</option>
+                                        <option value="active">فعال</option>
+                                        <option value="vacation">مرخصی</option>
+                                        <option value="parttime">پاره وقت</option>
+                                        <option value="inactive">غیرفعال</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="staff-hire-date">تاریخ استخدام</label>
+                                <input type="text" id="staff-hire-date" name="staff-hire-date" placeholder="1402/01/01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="staff-salary">حقوق پایه (تومان)</label>
+                                <input type="number" id="staff-salary" name="staff-salary" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="staff-note">یادداشت</label>
+                            <textarea id="staff-note" name="staff-note" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-footer">
+                    <button class="btn btn-secondary" id="cancelStaffBtn">انصراف</button>
+                    <button class="btn btn-primary" id="saveStaffBtn">ذخیره</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add Shift Modal -->
+        <div class="modal" id="shiftModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>افزودن شیفت جدید</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="shiftForm">
+                        <div class="form-group">
+                            <label for="shift-staff">انتخاب کارمند</label>
+                            <div class="custom-select">
+                                <select id="shift-staff" name="shift-staff" required>
+                                    <option value="">انتخاب کارمند</option>
+                                    <option value="1">علی محمدی</option>
+                                    <option value="2">سارا احمدی</option>
+                                    <option value="3">محمد رضایی</option>
+                                    <option value="4">زهرا کریمی</option>
+                                    <option value="5">امیر حسینی</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="shift-day">روز هفته</label>
+                                <div class="custom-select">
+                                    <select id="shift-day" name="shift-day" required>
+                                        <option value="">انتخاب روز</option>
+                                        <option value="saturday">شنبه</option>
+                                        <option value="sunday">یکشنبه</option>
+                                        <option value="monday">دوشنبه</option>
+                                        <option value="tuesday">سه‌شنبه</option>
+                                        <option value="wednesday">چهارشنبه</option>
+                                        <option value="thursday">پنجشنبه</option>
+                                        <option value="friday">جمعه</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="shift-time">ساعت کاری</label>
+                                <div class="custom-select">
+                                    <select id="shift-time" name="shift-time" required>
+                                        <option value="">انتخاب ساعت</option>
+                                        <option value="morning">8:00 - 12:00 (صبح)</option>
+                                        <option value="afternoon">12:00 - 16:00 (بعد از ظهر)</option>
+                                        <option value="evening">16:00 - 20:00 (عصر)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="shift-note">یادداشت</label>
+                            <textarea id="shift-note" name="shift-note" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-footer">
+                    <button class="btn btn-secondary" id="cancelShiftBtn">انصراف</button>
+                    <button class="btn btn-primary" id="saveShiftBtn">ذخیره</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Delete Confirmation Modal -->
+        <div class="modal" id="deleteConfirmModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>تأیید حذف</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>آیا از حذف این مورد اطمینان دارید؟ این عملیات قابل بازگشت نیست.</p>
+                </div>
+                <div class="form-footer">
+                    <button class="btn btn-secondary" id="cancelDeleteBtn">انصراف</button>
+                    <button class="btn btn-danger" id="confirmDeleteBtn">حذف</button>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="js/staff-management.js"></script>
+</body>
+</html>

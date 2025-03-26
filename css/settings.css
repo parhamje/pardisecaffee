@@ -1,0 +1,169 @@
+
+button{
+    font-family: "Vazirmatn", sans-serif;
+}
+input{
+    font-family: "Vazirmatn", sans-serif;
+}
+textarea{
+    font-family: "Vazirmatn", sans-serif;
+    resize: none;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 30px;
+    color: #4a3520;
+    line-height: 1.6;
+}
+
+.settings-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+}
+
+.settings-menu {
+    background-color: #321417;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.settings-menu h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #F3E0C5;
+}
+
+.setting-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    color: #F3E0C5;
+}
+
+.setting-item:hover {
+    background-color: #A67C52;
+    border-radius: 50px 0 0 50px;
+    color: #F3E0C5;
+}
+
+.setting-item.active {
+    background-color: #A67C52;
+    font-weight: bold;
+    border-radius: 50px 0 0 50px;
+    color: #F3E0C5;
+}
+
+.settings-content {
+    padding: 20px;
+    background-color: #f8f4ec;
+    border-radius: 8px;
+}
+
+.settings-section {
+    display: none;
+}
+
+.settings-section.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e6d7c3;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input {
+    margin-left: 10px;
+}
+
+button {
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #583e2e;
+}
+
+.color-picker {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.color-option.active {
+    border-color: #6f4e37;
+}
+
+.save-message {
+    display: none;
+    background-color: #e6f7e6;
+    color: #2e8b57;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .settings-container {
+        grid-template-columns: 1fr;
+    }
+    
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+}

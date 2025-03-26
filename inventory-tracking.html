@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/inventory-tracking.css">
+    <title>مدیریت انبار - کافه پارادایس</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo.png" alt="Logo">
+            <h2>پنل ادمین</h2>
+        </div>
+        <div class="sidebar-menu">
+            <a href="admin.html" class="menu-item"><i class="fa fa-tachometer-alt"></i> داشبورد</a>
+            <a href="menu-management.html" class="menu-item"><i class="fa fa-coffee"></i> مدیریت منو</a>
+            <a href="orders-management.html" class="menu-item"><i class="fa fa-shopping-cart"></i> مدیریت سفارشات</a>
+            <a href="inventory-tracking.html" class="menu-item active"><i class="fa fa-box"></i> پیگیری موجودی</a>
+            <a href="staff-management.html" class="menu-item"><i class="fa fa-users"></i> مدیریت کارکنان</a>
+            <!-- <a href="promotions-management.html" class="menu-item"><i class="fa fa-tags"></i> مدیریت تخفیفات</a> -->
+            <a href="customer-feedback.html" class="menu-item"><i class="fa fa-comments"></i> بازخورد مشتریان</a>
+            <a href="settings.html" class="menu-item"><i class="fa fa-cog"></i> تنظیمات</a>
+        </div>
+        <div class="sidebar-footer">
+            <p>© 2025 Coffee Shop</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>پیگیری موجودی</h1>
+            <div class="user-info">
+                <img src="img/user.png" alt="User">
+                <div>
+                    <p class="user-name">مدیر</p>
+                    <p class="user-role">ادمین</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="container">
+                <div class="stats">
+                    <div class="stat">
+                        <h3 id="totalItems">0</h3>
+                        <p>کل اقلام</p>
+                    </div>
+                    <div class="stat">
+                        <h3 id="lowStockItems">0</h3>
+                        <p>اقلام کم موجود</p>
+                    </div>
+                    <div class="stat">
+                        <h3 id="outOfStockItems">0</h3>
+                        <p>اقلام ناموجود</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard">
+                    <div class="card">
+                        <div class="flex-between">
+                            <h2>لیست موجودی انبار</h2>
+                            <button id="addItemBtn" class="btn">افزودن کالای جدید</button>
+                        </div>
+                        
+                        <div class="filters">
+                            <select id="categoryFilter">
+                                <option value="">همه دسته‌بندی‌ها</option>
+                                <option value="دانه قهوه">دانه قهوه</option>
+                                <option value="شیر و لبنیات">شیر و لبنیات</option>
+                                <option value="شربت‌ها">شربت‌ها</option>
+                                <option value="تجهیزات">تجهیزات</option>
+                                <option value="مواد غذایی">مواد غذایی</option>
+                            </select>
+                            
+                            <select id="stockFilter">
+                                <option value="">همه وضعیت‌های موجودی</option>
+                                <option value="low">کم موجود</option>
+                                <option value="out">ناموجود</option>
+                                <option value="ok">موجود</option>
+                            </select>
+                        </div>
+                        
+                        <table id="inventoryTable">
+                            <thead>
+                                <tr>
+                                    <th>کالا</th>
+                                    <th>دسته‌بندی</th>
+                                    <th>تعداد</th>
+                                    <th>وضعیت</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventoryBody">
+                                <!-- Table body content will be added with JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="card">
+                        <h2>فعالیت‌های اخیر</h2>
+                        <table id="activityTable">
+                            <thead>
+                                <tr>
+                                    <th>تاریخ</th>
+                                    <th>عملیات</th>
+                                    <th>کالا</th>
+                                    <th>تعداد</th>
+                                </tr>
+                            </thead>
+                            <tbody id="activityBody">
+                                <!-- Activity log will be added with JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Add Item Modal -->
+    <div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeAddModal">&times;</span>
+            <h2>افزودن کالای جدید</h2>
+            <form id="addItemForm">
+                <div>
+                    <label for="itemName">نام کالا</label>
+                    <input type="text" id="itemName" required>
+                </div>
+                <div>
+                    <label for="category">دسته‌بندی</label>
+                    <select id="category" required>
+                        <option value="">انتخاب دسته‌بندی</option>
+                        <option value="دانه قهوه">دانه قهوه</option>
+                        <option value="شیر و لبنیات">شیر و لبنیات</option>
+                        <option value="شربت‌ها">شربت‌ها</option>
+                        <option value="تجهیزات">تجهیزات</option>
+                        <option value="مواد غذایی">مواد غذایی</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="quantity">تعداد</label>
+                    <input type="number" id="quantity" min="0" required>
+                </div>
+                <div>
+                    <label for="unit">واحد</label>
+                    <input type="text" id="unit" placeholder="مثال: کیلوگرم، لیتر، عدد" required>
+                </div>
+                <div>
+                    <label for="threshold">آستانه هشدار کم موجودی</label>
+                    <input type="number" id="threshold" min="1" required>
+                </div>
+                <button type="submit" class="btn">افزودن کالا</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Update Quantity Modal -->
+    <div id="updateQuantityModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeUpdateModal">&times;</span>
+            <h2>بروزرسانی موجودی</h2>
+            <form id="updateQuantityForm">
+                <input type="hidden" id="updateItemId">
+                <div>
+                    <label for="updateItemName">کالا</label>
+                    <input type="text" id="updateItemName" readonly>
+                </div>
+                <div>
+                    <label for="currentQuantity">موجودی فعلی</label>
+                    <input type="number" id="currentQuantity" readonly>
+                </div>
+                <div>
+                    <label for="action">عملیات</label>
+                    <select id="action" required>
+                        <option value="add">افزودن موجودی</option>
+                        <option value="remove">کاهش موجودی</option>
+                        <option value="set">تنظیم دقیق موجودی</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="updateQuantity">تعداد</label>
+                    <input type="number" id="updateQuantity" min="0" required>
+                </div>
+                <button type="submit" class="btn">بروزرسانی</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="js/inventory-tracking.js"></script>
+</body>
+</html>

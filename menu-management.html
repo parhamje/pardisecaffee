@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/admin.css">
+    <title>Menu Management - Coffee Shop</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo.png" alt="Logo">
+            <h2>پنل ادمین</h2>
+        </div>
+        <div class="sidebar-menu">
+            <a href="admin.html" class="menu-item"><i class="fa fa-tachometer-alt"></i> داشبورد</a>
+            <a href="menu-management.html" class="menu-item active"><i class="fa fa-coffee"></i> مدیریت منو</a>
+            <a href="orders-management.html" class="menu-item"><i class="fa fa-shopping-cart"></i> مدیریت سفارشات</a>
+            <a href="inventory-tracking.html" class="menu-item"><i class="fa fa-box"></i> پیگیری موجودی</a>
+            <a href="staff-management.html" class="menu-item"><i class="fa fa-users"></i> مدیریت کارکنان</a>
+            <!-- <a href="promotions-management.html" class="menu-item"><i class="fa fa-tags"></i> مدیریت تخفیفات</a> -->
+            <a href="customer-feedback.html" class="menu-item"><i class="fa fa-comments"></i> بازخورد مشتریان</a>
+            <a href="settings.html" class="menu-item"><i class="fa fa-cog"></i> تنظیمات</a>
+        </div>
+        <div class="sidebar-footer">
+            <p>© 2025 Coffee Shop</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>مدیریت منو</h1>
+            <div class="user-info">
+                <img src="img/user.png" alt="User">
+                <div>
+                    <p class="user-name">مدیر</p>
+                    <p class="user-role">ادمین</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <h2>مدیریت منو</h2>
+                <div class="section-actions">
+                    <button class="btn btn-primary">افزودن آیتم</button>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>نام محصول</th>
+                        <th>دسته‌بندی</th>
+                        <th>قیمت</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>قهوه اسپرسو</td>
+                        <td>نوشیدنی گرم</td>
+                        <td>۵۰۰۰۰ تومان</td>
+                        <td>
+                            <button class="btn btn-outline" onclick="openEditModal('قهوه اسپرسو', 'نوشیدنی گرم', '۵۰۰۰۰ تومان')">ویرایش</button>
+                            <button class="btn btn-danger">حذف</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>کاپوچینو</td>
+                        <td>نوشیدنی گرم</td>
+                        <td>۵۰۰۰۰ تومان</td>
+                        <td>
+                            <button class="btn btn-outline" onclick="openEditModal('کاپوچینو', 'نوشیدنی گرم', '۵۰۰۰۰ تومان')">ویرایش</button>
+                            <button class="btn btn-danger">حذف</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>ویرایش آیتم</h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="productName" class="form-label">نام محصول</label>
+                    <input type="text" id="productName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory" class="form-label">دسته‌بندی</label>
+                    <input type="text" id="productCategory" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice" class="form-label">قیمت</label>
+                    <input type="text" id="productPrice" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">ذخیره</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script>
+        // Open the edit modal and populate it with the current item data
+        function openEditModal(name, category, price) {
+            document.getElementById('productName').value = name;
+            document.getElementById('productCategory').value = category;
+            document.getElementById('productPrice').value = price;
+            document.getElementById('editModal').style.display = 'block';
+        }
+
+        // Close the edit modal
+        function closeEditModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        // Handle form submission
+        document.getElementById('editForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Handle form submission logic here
+            closeEditModal();
+        });
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('editModal')) {
+                closeEditModal();
+            }
+        }
+    </script>
+</body>
+</html>

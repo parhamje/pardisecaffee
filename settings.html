@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <script src="js/settings.js"></script>
+    <title>تنظیمات - کافه پارادایس</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo.png" alt="Logo">
+            <h2>پنل ادمین</h2>
+        </div>
+        <div class="sidebar-menu">
+            <a href="admin.html" class="menu-item"><i class="fa fa-tachometer-alt"></i> داشبورد</a>
+            <a href="menu-management.html" class="menu-item"><i class="fa fa-coffee"></i> مدیریت منو</a>
+            <a href="orders-management.html" class="menu-item"><i class="fa fa-shopping-cart"></i> مدیریت سفارشات</a>
+            <a href="inventory-tracking.html" class="menu-item"><i class="fa fa-box"></i> پیگیری موجودی</a>
+            <a href="staff-management.html" class="menu-item"><i class="fa fa-users"></i> مدیریت کارکنان</a>
+            <!-- <a href="promotions-management.html" class="menu-item"><i class="fa fa-tags"></i> مدیریت تخفیفات</a> -->
+            <a href="customer-feedback.html" class="menu-item"><i class="fa fa-comments"></i> بازخورد مشتریان</a>
+            <a href="settings.html" class="menu-item active"><i class="fa fa-cog"></i> تنظیمات</a>
+        </div>
+        <div class="sidebar-footer">
+            <p>© 2025 Coffee Shop</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>تنظیمات</h1>
+            <div class="user-info">
+                <img src="img/user.png" alt="User">
+                <div>
+                    <p class="user-name">مدیر</p>
+                    <p class="user-role">ادمین</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="container">  
+                <div class="settings-container">
+                    <div class="settings-menu">
+                        <h3>بخش‌های تنظیمات</h3>
+                        <div class="setting-item active" data-section="general">تنظیمات عمومی</div>
+                        <div class="setting-item" data-section="profile">پروفایل</div>
+                        <div class="setting-item" data-section="menu">منوی کافه</div>
+                        <div class="setting-item" data-section="staff">کارکنان</div>
+                        <div class="setting-item" data-section="theme">تم و ظاهر</div>
+                        <div class="setting-item" data-section="notifications">اعلان‌ها</div>
+                        <div class="setting-item" data-section="security">امنیت</div>
+                    </div>
+                    
+                    <div class="settings-content">
+                        <div class="settings-section active" id="general">
+                            <h2>تنظیمات عمومی</h2>
+                            <div class="form-group">
+                                <label for="cafe-name">نام کافه</label>
+                                <input type="text" id="cafe-name" value="کافه پارادایس">
+                            </div>
+                            <div class="form-group">
+                                <label for="cafe-address">آدرس</label>
+                                <textarea id="cafe-address" rows="3">تهران، خیابان ولیعصر، کوچه بهار، پلاک ۴۲</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="cafe-phone">شماره تماس</label>
+                                <input type="tel" id="cafe-phone" value="۰۲۱-۸۸۷۷۶۶۵۵">
+                            </div>
+                            <div class="form-group">
+                                <label for="cafe-email">ایمیل</label>
+                                <input type="email" id="cafe-email" value="info@khatere-cafe.ir">
+                            </div>
+                            <div class="form-group">
+                                <label for="working-hours">ساعات کاری</label>
+                                <input type="text" id="working-hours" value="شنبه تا پنج‌شنبه: ۸ صبح تا ۱۱ شب | جمعه: ۱۰ صبح تا ۱۲ شب">
+                            </div>
+                            <button id="save-general">ذخیره تغییرات</button>
+                        </div>
+                        
+                        <div class="settings-section" id="profile">
+                            <h2>پروفایل</h2>
+                            <div class="form-group">
+                                <label for="manager-name">نام مدیر</label>
+                                <input type="text" id="manager-name" value="علی محمدی">
+                            </div>
+                            <div class="form-group">
+                                <label for="manager-email">ایمیل مدیر</label>
+                                <input type="email" id="manager-email" value="ali@khatere-cafe.ir">
+                            </div>
+                            <div class="form-group">
+                                <label for="manager-phone">شماره تماس مدیر</label>
+                                <input type="tel" id="manager-phone" value="۰۹۱۲۳۴۵۶۷۸۹">
+                            </div>
+                            <div class="form-group">
+                                <label for="old-password">رمز عبور فعلی</label>
+                                <input type="password" id="old-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">رمز عبور جدید</label>
+                                <input type="password" id="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">تکرار رمز عبور جدید</label>
+                                <input type="password" id="confirm-password">
+                            </div>
+                            <button id="save-profile">ذخیره تغییرات</button>
+                        </div>
+                        
+                        <div class="settings-section" id="menu">
+                            <h2>منوی کافه</h2>
+                            <div class="form-group">
+                                <label for="menu-categories">دسته‌بندی‌های منو</label>
+                                <input type="text" id="menu-categories" value="نوشیدنی‌های گرم، نوشیدنی‌های سرد، کیک و شیرینی، صبحانه، سالاد">
+                            </div>
+                            <div class="form-group">
+                                <label>نمایش قیمت‌ها</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="show-prices" checked>
+                                    <label for="show-prices">نمایش قیمت‌ها در منو</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>گزینه‌های ویژه</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="vegetarian-options" checked>
+                                    <label for="vegetarian-options">گزینه‌های گیاهی</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="gluten-free-options" checked>
+                                    <label for="gluten-free-options">گزینه‌های بدون گلوتن</label>
+                                </div>
+                            </div>
+                            <button id="manage-menu-items">مدیریت آیتم‌های منو</button>
+                            <button id="save-menu" style="margin-top: 15px;">ذخیره تغییرات</button>
+                        </div>
+                        
+                        <div class="settings-section" id="staff">
+                            <h2>کارکنان</h2>
+                            <div class="form-group">
+                                <label for="staff-count">تعداد کارکنان</label>
+                                <select id="staff-count">
+                                    <option>۵</option>
+                                    <option selected>۸</option>
+                                    <option>۱۰</option>
+                                    <option>۱۲</option>
+                                    <option>۱۵</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>ساعات کاری کارکنان</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="morning-shift" checked>
+                                    <label for="morning-shift">شیفت صبح (۸ صبح تا ۴ بعدازظهر)</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="evening-shift" checked>
+                                    <label for="evening-shift">شیفت عصر (۴ بعدازظهر تا ۱۲ شب)</label>
+                                </div>
+                            </div>
+                            <button id="manage-staff">مدیریت کارکنان</button>
+                            <button id="save-staff" style="margin-top: 15px;">ذخیره تغییرات</button>
+                        </div>
+                        
+                        <div class="settings-section" id="theme">
+                            <h2>تم و ظاهر</h2>
+                            <div class="form-group">
+                                <label for="theme-selection">انتخاب تم</label>
+                                <select id="theme-selection">
+                                    <option selected>کلاسیک چوبی</option>
+                                    <option>مدرن مینیمال</option>
+                                    <option>رترو ویتنیج</option>
+                                    <option>طبیعت سبز</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>رنگ اصلی</label>
+                                <div class="color-picker">
+                                    <div class="color-option active" style="background-color: #6f4e37;" data-color="#6f4e37"></div>
+                                    <div class="color-option" style="background-color: #2e8b57;" data-color="#2e8b57"></div>
+                                    <div class="color-option" style="background-color: #a87b51;" data-color="#a87b51"></div>
+                                    <div class="color-option" style="background-color: #5f9ea0;" data-color="#5f9ea0"></div>
+                                    <div class="color-option" style="background-color: #8b4513;" data-color="#8b4513"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="font-selection">انتخاب فونت</label>
+                                <select id="font-selection">
+                                    <option selected>وزیر</option>
+                                    <option>یکان</option>
+                                    <option>ایران سنس</option>
+                                    <option>دست‌نویس</option>
+                                </select>
+                            </div>
+                            <button id="save-theme">ذخیره تغییرات</button>
+                        </div>
+                        
+                        <div class="settings-section" id="notifications">
+                            <h2>اعلان‌ها</h2>
+                            <div class="form-group">
+                                <label>اعلان‌های ایمیلی</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="email-reservations" checked>
+                                    <label for="email-reservations">رزروهای جدید</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="email-comments" checked>
+                                    <label for="email-comments">نظرات مشتریان</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="email-promo">
+                                    <label for="email-promo">تخفیف‌ها و پروموشن‌ها</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>اعلان‌های پیامکی</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="sms-reservations" checked>
+                                    <label for="sms-reservations">رزروهای جدید</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="sms-emergency" checked>
+                                    <label for="sms-emergency">موارد اضطراری</label>
+                                </div>
+                            </div>
+                            <button id="save-notifications">ذخیره تغییرات</button>
+                        </div>
+                        
+                        <div class="settings-section" id="security">
+                            <h2>امنیت</h2>
+                            <div class="form-group">
+                                <label>تایید دو مرحله‌ای</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="two-factor-auth">
+                                    <label for="two-factor-auth">فعال‌سازی تایید دو مرحله‌ای</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="session-timeout">زمان پایان نشست</label>
+                                <select id="session-timeout">
+                                    <option>۱۵ دقیقه</option>
+                                    <option selected>۳۰ دقیقه</option>
+                                    <option>۱ ساعت</option>
+                                    <option>۲ ساعت</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-devices">دستگاه‌های فعال</label>
+                                <select id="login-devices" multiple size="3">
+                                    <option>Chrome - لپ‌تاپ (این دستگاه)</option>
+                                    <option>Safari - آیفون</option>
+                                    <option>Firefox - دسکتاپ دفتر</option>
+                                </select>
+                            </div>
+                            <button id="logout-devices">خروج از همه دستگاه‌ها</button>
+                            <button id="save-security" style="margin-top: 15px;">ذخیره تغییرات</button>
+                        </div>
+                        
+                        <div class="save-message">تغییرات با موفقیت ذخیره شد.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Shop Order Modal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    @font-face {
+      font-family: 'Vazir';
+      src: url('https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Vazir.eot');
+      src: url('https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Vazir.eot?#iefix') format('embedded-opentype'),
+           url('https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Vazir.woff2') format('woff2'),
+           url('https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Vazir.woff') format('woff'),
+           url('https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Vazir.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    body {
+      font-family: 'Vazir', sans-serif;
+      background-color: #f8f1e9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    /* Modal Container */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .modal {
+      background-color: #fff;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      animation: modalFadeIn 0.3s ease-out;
+    }
+    
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Modal Header */
+    .modal-header {
+      background: linear-gradient(135deg, #43281c, #704229);
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+    
+    .close-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    
+    .close-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Modal Body */
+    .modal-body {
+      padding: 20px;
+    }
+    
+    .order-summary {
+      margin-bottom: 20px;
+    }
+    
+    .order-summary h3 {
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #43281c;
+    }
+    
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #e0e0e0;
+    }
+    
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+    
+    .table-selection {
+      background-color: #f9f3eb;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .table-selection h3 {
+      margin-top: 0;
+      color: #43281c;
+    }
+    
+    .table-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    
+    .table-icon {
+      width: 80px;
+      height: 80px;
+      margin-left: 15px;
+    }
+    
+    .table-details {
+      flex: 1;
+    }
+    
+    .table-type {
+      font-weight: bold;
+      color: #43281c;
+      margin-bottom: 5px;
+    }
+    
+    /* Payment Info */
+    .payment-info {
+      background-color: #f9f3eb;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    
+    .payment-info h3 {
+      margin-top: 0;
+      color: #43281c;
+    }
+    
+    .total-section {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-top: 1px dashed #e0e0e0;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #43281c;
+    }
+    
+    /* Modal Footer */
+    .modal-footer {
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      background-color: #f9f3eb;
+    }
+    
+    .action-btn {
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-family: 'Vazir', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    
+    .cancel-btn {
+      background-color: #e0e0e0;
+      color: #43281c;
+    }
+    
+    .cancel-btn:hover {
+      background-color: #d0d0d0;
+    }
+    
+    .confirm-btn {
+      background: linear-gradient(135deg, #43281c, #704229);
+      color: #fff;
+    }
+    
+    .confirm-btn:hover {
+      background: linear-gradient(135deg, #704229, #43281c);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* For demo purposes */
+    .demo-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #43281c;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Vazir', sans-serif;
+    }
+    
+    /* Make the modal responsive */
+    @media (max-width: 768px) {
+      .modal {
+        width: 95%;
+      }
+      
+      .table-display {
+        flex-direction: column;
+      }
+      
+      .table-icon {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>تایید سفارش</h2>
+        <button class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="order-summary">
+          <h3>خلاصه سفارش</h3>
+          <div class="summary-item">
+            <span>قهوه دمی</span>
+            <span>۱ × ۱۰۰۰۰ تومان</span>
+          </div>
+          <div class="summary-item">
+            <span>قهوه اسپرسو</span>
+            <span>۲ × ۱۵۰۰۰ تومان</span>
+          </div>
+        </div>
+        
+        <div class="table-selection">
+          <h3>میز انتخاب شده</h3>
+          <div class="table-display">
+            <svg class="table-icon" viewBox="0 0 200 200">
+              <!-- Copy the SVG for the selected table here -->
+              <!-- For example, this is the round table SVG: -->
+              <circle cx="100" cy="100" r="50" fill="#a67b46" stroke="#43281c" stroke-width="3"/>
+              <circle cx="100" cy="100" r="40" fill="#bf9259" stroke="#43281c" stroke-width="1" opacity="0.7"/>
+              <path d="M100,150 L95,180 L105,180 L100,150" fill="#6d4c41" />
+              <ellipse cx="100" cy="180" rx="10" ry="3" fill="#5d4037" />
+              <ellipse cx="100" cy="85" rx="12" ry="8" fill="#f5f5f5" stroke="#43281c" stroke-width="1.5"/>
+              <path d="M88,85 Q88,95 100,95 Q112,95 112,85" fill="none" stroke="#43281c" stroke-width="1.5"/>
+              <path d="M115,85 Q118,83 118,80 Q118,77 115,75 L112,75" fill="none" stroke="#43281c" stroke-width="1.5"/>
+              <ellipse cx="100" cy="85" rx="8" ry="5" fill="#3e2723" opacity="0.7"/>
+              <circle cx="100" cy="30" r="10" fill="#8d6e63" stroke="#5d4037" stroke-width="1.5"/>
+              <circle cx="100" cy="170" r="10" fill="#8d6e63" stroke="#5d4037" stroke-width="1.5"/>
+              <circle cx="30" cy="100" r="10" fill="#8d6e63" stroke="#5d4037" stroke-width="1.5"/>
+              <circle cx="170" cy="100" r="10" fill="#8d6e63" stroke="#5d4037" stroke-width="1.5"/>
+            </svg>
+            <div class="table-details">
+              <div class="table-type">میز گرد</div>
+              <div>میز شماره ۵</div>
+              <div>ظرفیت: ۴ نفر</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="payment-info">
+          <h3>اطلاعات پرداخت</h3>
+          <div class="summary-item">
+            <span>مجموع محصولات</span>
+            <span>۴۰۰۰۰ تومان</span>
+          </div>
+          <div class="summary-item">
+            <span>مالیات (۹٪)</span>
+            <span>۳۶۰۰ تومان</span>
+          </div>
+          <div class="total-section">
+            <span>مبلغ قابل پرداخت</span>
+            <span>۴۳۶۰۰ تومان</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="action-btn cancel-btn">انصراف</button>
+        <button class="action-btn confirm-btn">تایید و پرداخت</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- For demo purposes only -->
+  <button class="demo-btn">نمایش مدال</button>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.querySelector('.modal-overlay');
+      const closeBtn = document.querySelector('.close-btn');
+      const cancelBtn = document.querySelector('.cancel-btn');
+      const demoBtn = document.querySelector('.demo-btn');
+      
+      // Close the modal when the X button is clicked
+      closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+      
+      // Close the modal when the cancel button is clicked
+      cancelBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+      
+      // Show the modal when the demo button is clicked
+      demoBtn.addEventListener('click', function() {
+        modal.style.display = 'flex';
+      });
+      
+      // Also close the modal when clicking outside of it
+      modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+      
+      // For integration with your existing code:
+      // You would replace the demo button with your actual "continue" button
+      // document.getElementById('continue-btn').addEventListener('click', function(e) {
+      //   e.preventDefault();
+      //   modal.style.display = 'flex';
+      // });
+      
+      // You would also need to dynamically update the order summary and selected table
+      // based on user selections in your main UI
+    });
+  </script>
+</body>
+</html>
