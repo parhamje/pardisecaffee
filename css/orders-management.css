@@ -16,6 +16,9 @@
     --warning-color: #f39c12;
     --info-color: #3498db;
   }
+  *{
+    font-family: "Vazirmatn", sans-serif;
+  }
 .order-management {
     background: var(--primary-bg);
     padding: 20px;

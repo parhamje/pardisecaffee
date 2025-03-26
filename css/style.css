@@ -438,6 +438,7 @@ html,body {
   border-radius: 60px;
   font-size: 15px;
   font-weight: bold;
+  font-family: "Vazirmatn", sans-serif;
 }
 .welcome-text a:hover {
   background-color: #8a6240;
