@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/login.css">
+    <title>ورود به حساب کاربری - کافه پاردایس</title>
+</head>
+<body>
+    <div class="login-container">    
+        <div class="login-box">
+            <img src="img/logo.png" alt="کافه پارادایس" class="logo">
+            <h1 class="login-title">ورود به حساب کاربری</h1>
+            
+            <form action="#" method="post" class="OTP-form" id="otpForm">
+                <p>کد دریافتی خود را وارد کنید</p>
+                <div class="number-inputs">
+                    <input type="text" maxlength="1" class="otp-input" required>
+                    <input type="text" maxlength="1" class="otp-input" required>
+                    <input type="text" maxlength="1" class="otp-input" required>
+                    <input type="text" maxlength="1" class="otp-input" required>
+                </div>
+                <div class="resend-otp">
+                    <span class="timer" id="resendTimer">۰۲:۰۰</span>
+                    <a href="#" class="resend-link" id="resendLink" disabled>ارسال مجدد کد</a>
+                </div>
+                <button type="submit" class="otp-btn">تایید</button>
+            </form>
+        </div>
+        
+        <div class="login-footer">
+            <p>&copy; ۱۴۰۴ کافه پارادایس - تمامی حقوق محفوظ است</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.otp-input');
+            const resendLink = document.getElementById('resendLink');
+            const resendTimer = document.getElementById('resendTimer');
+            let timeLeft = 120; 
+            
+            function startTimer() {
+                const timerInterval = setInterval(() => {
+                    timeLeft--;
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60;
+                    resendTimer.textContent = `۰${minutes}:${seconds < 10 ? '۰' : ''}${seconds}`;
+                    
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        resendLink.removeAttribute('disabled');
+                        resendTimer.style.display = 'none';
+                    }
+                }, 1000);
+            }
+            
+            startTimer();
+            
+            resendLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (this.hasAttribute('disabled')) return;
+                alert('کد جدید ارسال شد');
+                
+                timeLeft = 120;
+                resendTimer.style.display = 'inline';
+                this.setAttribute('disabled', true);
+                startTimer();
+            });
+            
+            inputs.forEach((input, index) => {
+                input.addEventListener('input', function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value.length === 1 && index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                });
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+                        inputs[index - 1].focus();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
