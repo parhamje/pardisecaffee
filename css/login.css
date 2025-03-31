@@ -1,7 +1,41 @@
+:root {
+    --scrollbar-bg: #321417;
+    --scrollbar-thumb: #a67c52;
+    --scrollbar-thumb-hover: #8a6240;
+  }
+
 @font-face {
     font-family: "Vazirmatn";
     src: url(../fonts/Vazirmatn-Regular.woff2);
   }
+::placeholder{
+    font-family: 'vazirmatn', sans-serif;
+}
+::-webkit-scrollbar {
+    width: 12px; /* Adjust width as needed */
+}
+
+/* Background of the scrollbar */
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 50px;
+    border: 3px solid var(--scrollbar-bg);
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+*{
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+}
 body {
     margin: 0;
     padding: 0;
@@ -14,7 +48,6 @@ body {
     direction: rtl;
     color: #333;
 }
-
 .login-container {
     width: 100%;
     max-width: 500px;
@@ -431,3 +464,238 @@ body {
     transform: translateY(-3px);
 }
 
+.form-group {
+    margin-bottom: 15px;
+    text-align: right;
+}
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.persian-datepicker {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    text-align: left;
+    direction: rtl;
+}
+
+
+/* Persian Datepicker Custom Styles */
+
+/* Date picker container */
+.datepicker-plot-area {
+    font-family: 'vazirmatn', sans-serif;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 300px;
+}
+
+/* Header styles */
+.datepicker-plot-area .datepicker-header {
+    background-color: #8B4513;
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.datepicker-plot-area .datepicker-header .btn-next,
+.datepicker-plot-area .datepicker-header .btn-prev,
+.datepicker-plot-area .datepicker-header .btn-switch {
+    color: #fff;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.datepicker-plot-area .datepicker-header .btn-next:hover,
+.datepicker-plot-area .datepicker-header .btn-prev:hover,
+.datepicker-plot-area .datepicker-header .btn-switch:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Days of week */
+.datepicker-plot-area .datepicker-day-view .table-days td.header-row {
+    color: #8B4513;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px 0;
+}
+
+/* Days */
+.datepicker-plot-area .datepicker-day-view .table-days td span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.datepicker-plot-area .datepicker-day-view .table-days td:not(.disabled) span:hover {
+    background-color: #f5e9df;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Selected day */
+.datepicker-plot-area .datepicker-day-view .table-days td.selected span {
+    background-color: #c89f7e;
+    color: #fff;
+}
+
+/* Today */
+.datepicker-plot-area .datepicker-day-view .table-days td.today span {
+    background-color: #f0f0f0;
+    border: 1px solid #8B4513;
+}
+
+/* Disabled days */
+.datepicker-plot-area .datepicker-day-view .table-days td.disabled span {
+    color: #ccc;
+}
+
+/* Month view */
+.datepicker-plot-area .datepicker-month-view .month-item,
+.datepicker-plot-area .datepicker-year-view .year-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    transition: all 0.3s ease;
+}
+
+.datepicker-plot-area .datepicker-month-view .month-item:hover,
+.datepicker-plot-area .datepicker-year-view .year-item:hover {
+    background-color: #f5e9df;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.datepicker-plot-area .datepicker-month-view .month-item.selected,
+.datepicker-plot-area .datepicker-year-view .year-item.selected {
+    background-color: #c89f7e;
+    color: #fff;
+    border-radius: 6px;
+}
+
+/* Time view */
+.datepicker-plot-area .datepicker-time-view input {
+    width: 45px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.datepicker-plot-area .datepicker-time-view .divider {
+    color: #8B4513;
+}
+
+/* Calendar icon styling */
+.calendar-icon {
+    position: absolute;
+    left: 40px;
+    top: 48.5%;
+    transform: translateY(-50%);
+    color: #8B4513;
+    cursor: pointer;
+}
+
+/* Custom style for the date input field */
+.persian-datepicker {
+    padding-left: 30px !important; /* Make room for the calendar icon */
+    font-family: 'vazirmatn', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.datepicker-plot-area {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.persian-datepicker:hover {
+    border-color: #a67c52;
+}
+select{
+    font-family: 'vazirmatn', sans-serif;
+}
+option{
+    font-family: 'vazirmatn', sans-serif;
+}
+.signup-btn {
+    background-color: #a67c52;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'vazirmatn', sans-serif;
+    width: 100%;
+}
+.signup-btn:hover {
+    background-color: #8b5a2b;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+@media screen and (max-width: 768px) {
+    .login-container {
+        padding: 10px;
+    }
+    .login-box {
+        padding: 50px 20px 20px;
+    }
+    .logo {
+        width: 80px;
+        top: -40px;
+    }
+    .login-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .calendar-icon{
+        position: relative;
+        top: -27px;
+        right: 95%;
+    }
+    .number-inputs {
+        gap: 5px;
+    }
+    .otp-input {
+        max-width: 20%;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+}

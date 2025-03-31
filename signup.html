@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!-- Persian Datepicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Persian Date Library (REQUIRED) -->
+    <script src="https://cdn.jsdelivr.net/npm/persian-date@1.0.0/dist/persian-date.min.js"></script>
+    
+    <!-- Persian Datepicker -->
+    <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/login.css">
+    <title>ورود به حساب کاربری - کافه پاردایس</title>
+</head>
+<body>
+    <div class="login-container">    
+        <div class="login-box">
+            <img src="img/logo.png" alt="کافه پارادایس" class="logo">
+            <h1 class="login-title">ساخت حساب کاربری</h1>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">نام و نام خانوادگی</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">ایمیل</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">تاریخ تولد</label>
+                    <input type="text" id="birthdate" name="birthdate" placeholder="تاریخ تولد" required class="persian-datepicker">
+                    <i class="fas fa-calendar-alt calendar-icon" id="calendar-icon"></i>
+                </div>
+                <div class="form-group">
+                    <label for="gender">جنسیت</label>
+                    <select id="gender" name="gender">
+                        <option value="male">مرد</option>
+                        <option value="female">زن</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">آدرس</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="form-group">
+                    <label for="interests">علاقه‌مندی‌ها</label>
+                    <input type="text" id="interests" name="interests" placeholder="مثلاً قهوه ترک">
+                </div>
+                <button type="submit" class="signup-btn">ثبت‌نام</button>
+            </form>
+            
+
+        </div>
+        
+        <div class="login-footer">
+            <p>&copy; ۱۴۰۴ کافه پارادایس - تمامی حقوق محفوظ است</p>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            // مقداردهی تاریخ‌نگار شمسی
+            $('#birthdate').persianDatepicker({
+                format: 'YYYY/MM/DD',
+                observer: true,
+                autoClose: true
+            });
+
+            // آیکون کلیک شود، تقویم باز شود
+            $('#calendar-icon').click(function() {
+                $('#birthdate').persianDatepicker('show');
+            });
+        });
+    </script>
+</body>
