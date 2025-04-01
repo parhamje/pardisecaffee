@@ -23,9 +23,9 @@
             <div class="logo"><a href="index.html"><img src="img/logo.png" alt="logo" /></a></div>
             <nav class="nav">
                 <p class="caffee-name">کافه پارادایس</p>
-                <a href="#">محصولات</a>
+                <a href="#category">محصولات</a>
                 <a href="#">درباره ما</a>
-                <a href="#">تماس با ما</a>
+                <a href="#contact">تماس با ما</a>
             </nav>
         </div>
         <div class="actions">
@@ -71,7 +71,23 @@
     </div>
     <!-- End of Mobile navbar -->
 
+      <!-- Scroll to top button with progress indicator -->
+    <div class="scroll-top-container" id="scrollTopContainer">
+        <svg class="progress-circle" viewBox="0 0 60 60">
+        <circle class="progress-circle__path" id="progressCircle"
+                cx="30" cy="30" r="28"
+                stroke-dasharray="175.9" 
+                stroke-dashoffset="175.9" />
+        </svg>
+        <div class="scroll-top-button" id="scrollTopBtn">
+        <svg class="arrow-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+        </svg>
+        </div>
+    </div>
 
+
+    <!-- stories -->
     <div class="stories-wrapper">
         <button class="nav-btn left" onclick="scrollStories(-1)" aria-label="Previous stories">&#10095;</button>
         <div class="stories-container" id="storiesContainer">
@@ -93,6 +109,9 @@
         </div>
         <div class="pagination" id="pagination"></div>
     </div>
+    <!-- end of story -->
+
+
 
     <section class="welcome-text">
         <div class="texts">
@@ -104,7 +123,7 @@
     </section>
     <hr>
 
-    <section class="category">
+    <section class="category" id="category">
         <h2>دسته بندی محصولات</h2>
         <div class="container">
             <div class="category-filters" data-aos="fade-up">
@@ -287,7 +306,7 @@
         </div>
     </section>
     <hr>
-    <section class="contactustitle">
+    <section class="contactustitle" id="contact">
         <h2>تماس با ما</h2>
     </section>
     <section class="contact-section page-transition">
@@ -448,7 +467,7 @@
 
         <!-- کپی‌رایت -->
         <div class="footer-bottom">
-            <p>© ۱۴۰۴ تمامی حقوق محفوظ است | طراحی شده توسط <a href="#"><img src="img/fodino.png" alt="fodino"></a></p>
+            <p>© ۱۴۰۴ تمامی حقوق محفوظ است | طراحی شده توسط <a href="#"><img src="img/fodimo.png" alt="fodino"></a></p>
         </div>
     </footer>
 
@@ -707,6 +726,66 @@
             adjustStoryModalSize();
         });
 
+
+
+
+        // Scroll to top functionality
+         // Get DOM elements
+    const scrollContainer = document.getElementById('scrollTopContainer');
+    const scrollButton = document.getElementById('scrollTopBtn');
+    const progressCircle = document.getElementById('progressCircle');
+    
+    // Calculate circle properties
+    const radius = progressCircle.getAttribute('r');
+    const circumference = 2 * Math.PI * radius;
+    
+    // Set the initial stroke-dasharray
+    progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressCircle.style.strokeDashoffset = circumference;
+    
+    // Debounce function to limit execution frequency
+    function debounce(func, wait = 10) {
+      let timeout;
+      return function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, arguments), wait);
+      };
+    }
+    
+    // Update progress and button visibility
+    function updateScroll() {
+      // Calculate scroll position
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercentage = Math.min(scrollTop / scrollHeight, 1);
+      
+      // Update progress circle
+      const dashoffset = circumference - (scrollPercentage * circumference);
+      progressCircle.style.strokeDashoffset = dashoffset;
+      
+      // Show/hide button based on scroll position
+      if (scrollTop > 200) {
+        scrollContainer.classList.add('visible');
+      } else {
+        scrollContainer.classList.remove('visible');
+      }
+    }
+    
+    // Scroll to top with smooth animation
+    function scrollToTop() {
+      // Using the smooth scroll behavior
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Event listeners
+    window.addEventListener('scroll', debounce(updateScroll, 5));
+    scrollButton.addEventListener('click', scrollToTop);
+    
+    // Initial update
+    updateScroll();
     </script>
 </body>
 
