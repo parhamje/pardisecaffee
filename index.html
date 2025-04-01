@@ -12,11 +12,18 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
 
     <title>کافه پارادایس</title>
 </head>
 
 <body>
+    <!-- loading -->
+    <div class="loading" id="loading-container">
+        <div id="loading"></div>
+    </div>
+
+    <!-- End of loading -->
     <!-- Header -->
     <header class="header">
         <div class="logo-nav">
@@ -786,7 +793,25 @@
     
     // Initial update
     updateScroll();
-    </script>
+
+
+    // Initialize Lottie animation
+    lottie.loadAnimation({
+    container: document.getElementById("loading"), // Target the loading container
+    renderer: "svg", // Render as SVG
+    loop: true, // Loop the animation
+    autoplay: true, // Start automatically
+    path: "js/animation.json", // Path to the animation JSON file
+    });
+
+    // Simulate removing the loading screen after 3 seconds
+    setTimeout(() => {
+  document.getElementById("loading-container").style.display = "none";
+}, 10000); // 10 seconds
+
+
+</script>
+
 </body>
 
 </html>
