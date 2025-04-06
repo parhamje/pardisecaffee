@@ -833,7 +833,7 @@
 
         // Optional: handle the confirm button click
         confirmBtn.addEventListener("click", function() {
-          alert("پرداخت با موفقیت انجام شد!");
+          window.location.href = "succefulorder.html"; // Redirect to payment page
           modalOverlay.style.display = "none";
         });
       });

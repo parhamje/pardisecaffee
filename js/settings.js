@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Menu tab switching
-    const menuItems = document.querySelectorAll('.menu-item');
+    const menuItems = document.querySelectorAll('.setting-item');
     const settingsSections = document.querySelectorAll('.settings-section');
     
     menuItems.forEach(item => {

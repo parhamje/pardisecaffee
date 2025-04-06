@@ -1909,11 +1909,16 @@ footer {
 
 .product-card:hover {
   transform: scale3d(1.05, 1.05, 1.05);
+  
 }
 .selected {
   transform: scale3d(1.05, 1.05, 1.05);
   background-color: #a67c52;
   color: white;
+  border: 1px solid #8b6239;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  
 }
 .product-card img {
   width: 200px; /* اندازه تصویر */
