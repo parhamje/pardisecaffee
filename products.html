@@ -25,10 +25,41 @@
     <title>منوی کافه - کافه پارادایس</title>
   </head>
   <body>
+    <!-- AI ChatBox -->
+    <button id="chat-toggle-btn" title="چت با ما"><i class="fa-solid fa-mug-saucer"></i></button>
+
+    <div id="chat-window">
+      <div id="chat-header">
+        <div>
+          <div style="font-size: 18px; margin-bottom: 2px">☕ منوی کافه</div>
+          <div style="font-size: 12px; opacity: 0.9; font-weight: 400">
+            همیشه در خدمت شما
+          </div>
+        </div>
+        <button id="chat-close-btn" title="بستن">×</button>
+      </div>
+      <div id="chat-messages">
+        <div class="message bot-msg">
+          سلام! 👋 به کافه پارادایس خوش آمدید. چه چیزی از منو برایتان توضیح دهم؟
+        </div>
+      </div>
+      <form id="chat-input-area" onsubmit="return false;">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="سوالت درباره منو را بپرس..."
+          autocomplete="off"
+        />
+        <button id="chat-send-btn" type="submit">ارسال</button>
+      </form>
+    </div>
+    <!-- End of AI ChatBox -->
     <!-- Header -->
     <header class="header">
       <div class="logo-nav">
-        <div class="logo"><a href="index.html"><img src="img/logo.png" alt="logo" /></a></div>
+        <div class="logo">
+          <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
+        </div>
         <nav class="nav">
           <a href="#">محصولات</a>
           <a href="#">درباره ما</a>
@@ -52,104 +83,114 @@
     </header>
     <!-- End of Header -->
     <div class="product-container">
-     <!-- product cat -->
-    <section class="products-cat">
-      <div class="product-head">
-        <h1>منوی کافه</h1>
-        <i class="fa-solid fa-utensils"></i>
-      </div>
-      <div class="cat-name" data-aos="fade-up">
-        <div class="product-name">
-          <button class="active" data-category="all">همه<i class="fas fa-list"></i></button>
-      </div>
-        <div class="product-name">
-            <button class="" data-category="warm">نوشیدنی‌های گرم<i class="fas fa-coffee"></i></button>
+      <!-- product cat -->
+      <section class="products-cat">
+        <div class="product-head">
+          <h1>منوی کافه</h1>
+          <i class="fa-solid fa-utensils"></i>
         </div>
-        <div class="product-name">
-            <button class="" data-category="cold">نوشیدنی‌های سرد<i class="fas fa-glass-martini-alt"></i></button>
+        <div class="cat-name" data-aos="fade-up">
+          <div class="product-name">
+            <button class="active" data-category="all">
+              همه<i class="fas fa-list"></i>
+            </button>
+          </div>
+          <div class="product-name">
+            <button class="" data-category="warm">
+              نوشیدنی‌های گرم<i class="fas fa-coffee"></i>
+            </button>
+          </div>
+          <div class="product-name">
+            <button class="" data-category="cold">
+              نوشیدنی‌های سرد<i class="fas fa-glass-martini-alt"></i>
+            </button>
+          </div>
+          <div class="product-name">
+            <button class="" data-category="dessert">
+              دسرها<i class="fas fa-ice-cream"></i>
+            </button>
+          </div>
+          <div class="product-name">
+            <button class="" data-category="appetizer">
+              پیش‌غذاها<i class="fas fa-bread-slice"></i>
+            </button>
+          </div>
         </div>
-        <div class="product-name">
-            <button class="" data-category="dessert">دسرها<i class="fas fa-ice-cream"></i></button>
+      </section>
+      <!-- End of product cat -->
+      <!-- products -->
+      <section class="products-grid">
+        <div class="product-card" data-category="warm">
+          <img src="img/brewed coffee.png" alt="نوشیدنی گرم" />
+          <h3>قهوه دمی</h3>
+          <p>قهوه دمی تازه و خوش‌عطر با عطر و طعمی بی‌نظیر</p>
+          <div class="order-num">
+            <span class="plus" id="plus">+</span>
+            <span class="num" id="num">0</span>
+            <span class="minus" id="minus">-</span>
+          </div>
         </div>
-        <div class="product-name">
-            <button class="" data-category="appetizer">پیش‌غذاها<i class="fas fa-bread-slice"></i></button>
+        <div class="product-card" data-category="cold">
+          <img src="img/icedCoffee.png" alt="نوشیدنی سرد" />
+          <h3>آیس کافی</h3>
+          <p>قهوه خنک و دلچسب برای روزهای گرم</p>
+          <div class="order-num">
+            <span class="plus">+</span>
+            <span class="num">0</span>
+            <span class="minus">-</span>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- End of product cat -->
-     <!-- products -->
-     <section class="products-grid">
-      <div class="product-card" data-category="warm">
-        <img src="img/brewed coffee.png" alt="نوشیدنی گرم">
-        <h3>قهوه دمی</h3>
-        <p>قهوه دمی تازه و خوش‌عطر با عطر و طعمی بی‌نظیر</p>
-        <div class="order-num">
-          <span class="plus" id="plus">+</span>
-          <span class="num" id="num">0</span>
-          <span class="minus" id="minus">-</span>
+        <div class="product-card" data-category="dessert">
+          <img src="img/vanillaicecream.png" alt="دسر" />
+          <h3>بستنی وانیلی</h3>
+          <p>بستنی وانیلی خامه‌ای با طعمی فراموش‌نشدنی</p>
+          <div class="order-num">
+            <span class="plus">+</span>
+            <span class="num">0</span>
+            <span class="minus">-</span>
+          </div>
         </div>
-      </div>
-      <div class="product-card" data-category="cold">
-        <img src="img/icedCoffee.png" alt="نوشیدنی سرد">
-        <h3>آیس کافی</h3>
-        <p>قهوه خنک و دلچسب برای روزهای گرم</p>
-        <div class="order-num">
-          <span class="plus">+</span>
-          <span class="num">0</span>
-          <span class="minus">-</span>
+        <div class="product-card" data-category="warm">
+          <img src="img/cappuccino.png" alt="دسر" />
+          <h3>کاپوچینو</h3>
+          <p>طعم دل‌نشین شیر و قهوه با کف خامه‌ای بی‌نظیر</p>
+          <div class="order-num">
+            <span class="plus">+</span>
+            <span class="num">0</span>
+            <span class="minus">-</span>
+          </div>
         </div>
-      </div>
-      <div class="product-card" data-category="dessert">
-        <img src="img/vanillaicecream.png" alt="دسر">
-        <h3>بستنی وانیلی</h3>
-        <p>بستنی وانیلی خامه‌ای با طعمی فراموش‌نشدنی</p>
-        <div class="order-num">
-          <span class="plus">+</span>
-          <span class="num">0</span>
-          <span class="minus">-</span>
+        <div class="product-card" data-category="warm">
+          <img src="img/epercco.png" alt="دسر" />
+          <h3>اسپرسو</h3>
+          <p>اسپرسو سبزه و خوش‌عطر با عطر و طعمی بی‌نظیر</p>
+          <div class="order-num">
+            <span class="plus">+</span>
+            <span class="num">0</span>
+            <span class="minus">-</span>
+          </div>
         </div>
-      </div>
-      <div class="product-card" data-category="warm">
-        <img src="img/cappuccino.png" alt="دسر">
-        <h3>کاپوچینو</h3>
-        <p>طعم دل‌نشین شیر و قهوه با کف خامه‌ای بی‌نظیر</p>
-        <div class="order-num">
-          <span class="plus">+</span>
-          <span class="num">0</span>
-          <span class="minus">-</span>
+        <div class="product-card" data-category="appetizer">
+          <img src="img/bakedtomato.png" alt="سیب‌زمینی تنوری با پنیر و بیکن" />
+          <h3>سیب‌زمینی تنوری با پنیر و بیکن</h3>
+          <p>
+            سیب‌زمینی‌های تنوری ترد با پنیر آب‌شده و بیکن، مناسب برای شروع یک
+            وعده دلچسب.
+          </p>
+          <div class="order-num">
+            <span class="plus">+</span>
+            <span class="num">0</span>
+            <span class="minus">-</span>
+          </div>
         </div>
-      </div>
-      <div class="product-card" data-category="warm">
-        <img src="img/epercco.png" alt="دسر">
-        <h3>اسپرسو</h3>
-        <p>اسپرسو سبزه و خوش‌عطر با عطر و طعمی بی‌نظیر</p>
-        <div class="order-num">
-          <span class="plus">+</span>
-          <span class="num">0</span>
-          <span class="minus">-</span>
-        </div>
-      </div>
-      <div class="product-card" data-category="appetizer">
-        <img src="img/bakedtomato.png" alt="سیب‌زمینی تنوری با پنیر و بیکن">
-        <h3>سیب‌زمینی تنوری با پنیر و بیکن</h3>
-        <p>سیب‌زمینی‌های تنوری ترد با پنیر آب‌شده و بیکن، مناسب برای شروع یک وعده دلچسب.</p>
-        <div class="order-num">
-          <span class="plus">+</span>
-          <span class="num">0</span>
-          <span class="minus">-</span>
-        </div>
-      </div>
-      
-    </section>    
-     <!-- End of products -->
+      </section>
+      <!-- End of products -->
     </div>
-    
 
     <div class="next" id="continue-btn">
       <a href="order.html" class="nextbtn">ادامه خرید</a>
       <span class="count">0</span>
     </div>
-
 
     <footer id="footer">
       <div class="footer-container" dir="rtl">
@@ -214,28 +255,28 @@
       </div>
     </footer>
 
-
-
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const filterButtons = document.querySelectorAll(".product-name button");
         const productCards = document.querySelectorAll(".product-card");
-    
+
         filterButtons.forEach((button) => {
           button.addEventListener("click", function () {
             // حذف کلاس active از همه دکمه‌ها
             filterButtons.forEach((btn) => btn.classList.remove("active"));
-    
+
             // اضافه کردن کلاس active به دکمه کلیک‌شده
             this.classList.add("active");
-    
+
             // دریافت دسته‌بندی انتخاب‌شده
             const category = this.getAttribute("data-category");
-    
+
             // نمایش یا مخفی کردن محصولات بر اساس دسته‌بندی
             productCards.forEach((card) => {
-              if (category === "all" || card.getAttribute("data-category") === category) {
+              if (
+                category === "all" ||
+                card.getAttribute("data-category") === category
+              ) {
                 card.style.display = "flex"; // نمایش کارت
               } else {
                 card.style.display = "none"; // مخفی کردن کارت
@@ -245,69 +286,73 @@
         });
       });
 
+      const cards = document.querySelectorAll(".product-card");
+      const continueBtn = document.getElementById("continue-btn");
+      const countSpan = document.querySelector(".next .count");
 
-      const cards = document.querySelectorAll('.product-card');
-        const continueBtn = document.getElementById('continue-btn');
-        const countSpan = document.querySelector('.next .count');
-
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('selected');
-                updateButtonVisibility();
-            });
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          card.classList.toggle("selected");
+          updateButtonVisibility();
         });
+      });
 
-        function updateButtonVisibility() {
-            const selectedCards = document.querySelectorAll('.product-card.selected');
-            countSpan.textContent = selectedCards.length;
-            if (selectedCards.length > 0) {
-                continueBtn.style.display = 'flex';
-                setTimeout(() => continueBtn.classList.add('show'), 10);
-            } else {
-                continueBtn.classList.remove('show');
-                setTimeout(() => continueBtn.style.display = 'none', 300);
-            }
+      function updateButtonVisibility() {
+        const selectedCards = document.querySelectorAll(
+          ".product-card.selected"
+        );
+        countSpan.textContent = selectedCards.length;
+        if (selectedCards.length > 0) {
+          continueBtn.style.display = "flex";
+          setTimeout(() => continueBtn.classList.add("show"), 10);
+        } else {
+          continueBtn.classList.remove("show");
+          setTimeout(() => (continueBtn.style.display = "none"), 300);
         }
+      }
 
+      document.addEventListener("DOMContentLoaded", () => {
+        const continueBtn = document.getElementById("continue-btn");
+        const footer = document.getElementById("footer");
 
-        document.addEventListener("DOMContentLoaded", () => {
-          const continueBtn = document.getElementById("continue-btn");
-          const footer = document.getElementById("footer");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                continueBtn.classList.remove("show");
+                setTimeout(() => (continueBtn.style.display = "none"), 300);
+              } else if (
+                document.querySelectorAll(".product-card.selected").length > 0
+              ) {
+                continueBtn.style.display = "flex";
+                setTimeout(() => continueBtn.classList.add("show"), 10);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
 
-          const observer = new IntersectionObserver(entries => {
-              entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                      continueBtn.classList.remove("show");
-                      setTimeout(() => continueBtn.style.display = "none", 300);
-                  } else if (document.querySelectorAll('.product-card.selected').length > 0) {
-                      continueBtn.style.display = "flex";
-                      setTimeout(() => continueBtn.classList.add("show"), 10);
-                  }
-              });
-          }, { threshold: 0.1 });
-
-          observer.observe(footer);
+        observer.observe(footer);
       });
       document.addEventListener("DOMContentLoaded", function () {
-        const plus = document.getElementById('plus');
-        const num = document.getElementById('num');
-        const minus = document.getElementById('minus');
-        const cards = document.querySelectorAll('.product-card');
+        const plus = document.getElementById("plus");
+        const num = document.getElementById("num");
+        const minus = document.getElementById("minus");
+        const cards = document.querySelectorAll(".product-card");
         let count = 0; // مقدار اولیه
         num.textContent = count;
 
-        
         plus.addEventListener("click", function () {
-            count++;
-            num.textContent = count;
+          count++;
+          num.textContent = count;
         });
 
         minus.addEventListener("click", function () {
-            count--;
-            num.textContent = count;
+          count--;
+          num.textContent = count;
         });
-    });
-
-    </script>    
+      });
+    </script>
+    <script src="js/chatScripts.js"></script>
   </body>
 </html>
