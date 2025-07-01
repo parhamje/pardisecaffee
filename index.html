@@ -46,9 +46,9 @@
     </header>
     <!-- End of Header -->
      <!-- Mobile navbar -->
-     <div class="navbar-container">
-        <svg class="navbar-bg" xmlns="http://www.w3.org/2000/svg" width="550" height="67" viewBox="0 0 440 67" fill="none" stroke="#321417">
-            <path d="M0 41.6098C0 22.9408 0 13.6063 5.78093 7.76199C11.5619 1.91764 20.8958 1.81581 39.5636 1.61214L164.449 0.249605C169.715 0.192142 172.349 0.163411 172.903 0.193558C173.457 0.223704 171.91 0.037813 172.529 0.112169C177.107 0.662327 184.868 3.55773 192 15.5756C197.41 24.6932 204.393 28.1651 210.093 29.3393C216.117 30.5803 219.129 31.2007 220.659 31.2369C222.189 31.273 225.087 30.8172 230.885 29.9056C235.947 29.1097 242.094 26.5268 247.5 19.6895C250.363 16.0682 252.811 13.0548 254.876 10.5681C258.827 5.80845 260.803 3.42865 264.235 1.81702C267.668 0.205381 271.051 0.205382 277.816 0.205384L357 0.205403L400.886 1.17744C419.359 1.58661 428.596 1.79119 434.298 7.62103C440 13.4509 440 22.6898 440 41.1676V67H0V41.6098Z" fill="#F3E0C5"/>
+    <div class="navbar-container">
+        <svg class="navbar-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 67" fill="none">
+            <path d="M0 41.6098C0 22.9408 0 13.6063 5.78093 7.76199C11.5619 1.91764 20.8958 1.81581 39.5636 1.61214L164.449 0.249605C169.715 0.192142 172.349 0.163411 172.903 0.193558C173.457 0.223704 171.91 0.037813 172.529 0.112169C177.107 0.662327 184.868 3.55773 192 15.5756C197.41 24.6932 204.393 28.1651 210.093 29.3393C216.117 30.5803 219.129 31.2007 220.659 31.2369C222.189 31.273 225.087 30.8172 230.885 29.9056C235.947 29.1097 242.094 26.5268 247.5 19.6895C250.363 16.0682 252.811 13.0548 254.876 10.5681C258.827 5.80845 260.803 3.42865 264.235 1.81702C267.668 0.205381 271.051 0.205382 277.816 0.205384L357 0.205403L400.886 1.17744C419.359 1.58661 428.596 1.79119 434.298 7.62103C440 13.4509 440 22.6898 440 41.1676V67H0V41.6098Z"/>
         </svg>
         
         <div class="home-button">
@@ -56,23 +56,24 @@
         </div>
         
         <nav class="navbar">
-            <a href="#" class="nav-item shopping-cart">
+            <a href="#" class="nav-item shopping-cart" data-nav="cart">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <span>سبد</span>
-                <span class="count">0</span>
+                <span class="count" id="cartCount">3</span>
             </a>
-            <a href="#" class="nav-item menu-button">
+            <a href="#" class="nav-item menu-button" data-nav="menu">
                 <i class="fa-solid fa-utensils"></i>
                 <span>منو</span>
             </a>
-            <div style="width: 80px;"></div> <!-- Spacer for home button -->
-            <a href="#" class="nav-item search-button">
+            <div class="spacer"></div>
+            <a href="#" class="nav-item search-button" data-nav="search">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <span>جستجو</span>
             </a>
-            <a href="#" class="nav-item profile-button">
+            <a href="#" class="nav-item profile-button" data-nav="profile">
                 <i class="fa-solid fa-circle-user"></i>
                 <span>پروفایل</span>
+                <div class="notification-dot"></div>
             </a>
         </nav>
     </div>
