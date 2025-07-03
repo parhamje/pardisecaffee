@@ -1,818 +1,935 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-96x96.png"
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
     <link rel="shortcut icon" href="img/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
     <link rel="manifest" href="img/site.webmanifest" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
 
     <title>کافه پارادایس</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- loading -->
     <div class="loading" id="loading-container">
-        <div id="loading"></div>
+      <div id="loading"></div>
     </div>
 
     <!-- End of loading -->
     <!-- Header -->
     <header class="header">
-        <div class="logo-nav">
-            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="logo" /></a></div>
-            <nav class="nav">
-                <p class="caffee-name">کافه پارادایس</p>
-                <a href="#category">محصولات</a>
-                <a href="#">درباره ما</a>
-                <a href="#contact">تماس با ما</a>
-            </nav>
+      <div class="logo-nav">
+        <div class="logo">
+          <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
         </div>
-        <div class="actions">
-            <div class="search">
-                <a href="" class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </div>
-            <a href="login.html" class="btn"><i class="fa-solid fa-user"></i><span>ورود|ثبت نام</span></a>
-            <a href="#" class="btn"><i class="fa-solid fa-bag-shopping"></i>۰ تومان</a>
-            <span class="count">0</span>
+        <nav class="nav">
+          <p class="caffee-name">کافه پارادایس</p>
+          <a href="#category">محصولات</a>
+          <a href="#">درباره ما</a>
+          <a href="#contact">تماس با ما</a>
+        </nav>
+      </div>
+      <div class="actions">
+        <div class="search">
+          <a href="" class="searchbtn"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></a>
         </div>
+        <a href="login.html" class="btn"
+          ><i class="fa-solid fa-user"></i><span>ورود|ثبت نام</span></a
+        >
+        <a href="#" class="btn"
+          ><i class="fa-solid fa-bag-shopping"></i>۰ تومان</a
+        >
+        <span class="count">0</span>
+      </div>
     </header>
     <!-- End of Header -->
-     <!-- Mobile navbar -->
+    <!-- Mobile navbar -->
     <div class="navbar-container">
-        <svg class="navbar-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 67" fill="none">
-            <path d="M0 41.6098C0 22.9408 0 13.6063 5.78093 7.76199C11.5619 1.91764 20.8958 1.81581 39.5636 1.61214L164.449 0.249605C169.715 0.192142 172.349 0.163411 172.903 0.193558C173.457 0.223704 171.91 0.037813 172.529 0.112169C177.107 0.662327 184.868 3.55773 192 15.5756C197.41 24.6932 204.393 28.1651 210.093 29.3393C216.117 30.5803 219.129 31.2007 220.659 31.2369C222.189 31.273 225.087 30.8172 230.885 29.9056C235.947 29.1097 242.094 26.5268 247.5 19.6895C250.363 16.0682 252.811 13.0548 254.876 10.5681C258.827 5.80845 260.803 3.42865 264.235 1.81702C267.668 0.205381 271.051 0.205382 277.816 0.205384L357 0.205403L400.886 1.17744C419.359 1.58661 428.596 1.79119 434.298 7.62103C440 13.4509 440 22.6898 440 41.1676V67H0V41.6098Z"/>
-        </svg>
-        
-        <div class="home-button">
-            <i class="fa-solid fa-house"></i>
-        </div>
-        
-        <nav class="navbar">
-            <a href="#" class="nav-item shopping-cart" data-nav="cart">
-                <i class="fa-solid fa-basket-shopping"></i>
-                <span>سبد</span>
-                <span class="count" id="cartCount">3</span>
-            </a>
-            <a href="#" class="nav-item menu-button" data-nav="menu">
-                <i class="fa-solid fa-utensils"></i>
-                <span>منو</span>
-            </a>
-            <div class="spacer"></div>
-            <a href="#" class="nav-item search-button" data-nav="search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span>جستجو</span>
-            </a>
-            <a href="#" class="nav-item profile-button" data-nav="profile">
-                <i class="fa-solid fa-circle-user"></i>
-                <span>پروفایل</span>
-                <div class="notification-dot"></div>
-            </a>
-        </nav>
+      <svg
+        class="navbar-bg"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 440 67"
+        fill="none"
+      >
+        <path
+          d="M0 41.6098C0 22.9408 0 13.6063 5.78093 7.76199C11.5619 1.91764 20.8958 1.81581 39.5636 1.61214L164.449 0.249605C169.715 0.192142 172.349 0.163411 172.903 0.193558C173.457 0.223704 171.91 0.037813 172.529 0.112169C177.107 0.662327 184.868 3.55773 192 15.5756C197.41 24.6932 204.393 28.1651 210.093 29.3393C216.117 30.5803 219.129 31.2007 220.659 31.2369C222.189 31.273 225.087 30.8172 230.885 29.9056C235.947 29.1097 242.094 26.5268 247.5 19.6895C250.363 16.0682 252.811 13.0548 254.876 10.5681C258.827 5.80845 260.803 3.42865 264.235 1.81702C267.668 0.205381 271.051 0.205382 277.816 0.205384L357 0.205403L400.886 1.17744C419.359 1.58661 428.596 1.79119 434.298 7.62103C440 13.4509 440 22.6898 440 41.1676V67H0V41.6098Z"
+        />
+      </svg>
+
+      <div class="home-button">
+        <i class="fa-solid fa-house"></i>
+      </div>
+
+      <nav class="navbar">
+        <a href="#" class="nav-item shopping-cart" data-nav="cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span>سبد</span>
+          <span class="count" id="cartCount">3</span>
+        </a>
+        <a href="#" class="nav-item menu-button" data-nav="menu">
+          <i class="fa-solid fa-utensils"></i>
+          <span>منو</span>
+        </a>
+        <div class="spacer"></div>
+        <a href="#" class="nav-item search-button" data-nav="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>جستجو</span>
+        </a>
+        <a href="#" class="nav-item profile-button" data-nav="profile">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>پروفایل</span>
+          <div class="notification-dot"></div>
+        </a>
+      </nav>
     </div>
     <!-- End of Mobile navbar -->
 
-      <!-- Scroll to top button with progress indicator -->
+    <!-- Scroll to top button with progress indicator -->
     <div class="scroll-top-container" id="scrollTopContainer">
-        <svg class="progress-circle" viewBox="0 0 60 60">
-        <circle class="progress-circle__path" id="progressCircle"
-                cx="30" cy="30" r="28"
-                stroke-dasharray="175.9" 
-                stroke-dashoffset="175.9" />
+      <svg class="progress-circle" viewBox="0 0 60 60">
+        <circle
+          class="progress-circle__path"
+          id="progressCircle"
+          cx="30"
+          cy="30"
+          r="28"
+          stroke-dasharray="175.9"
+          stroke-dashoffset="175.9"
+        />
+      </svg>
+      <div class="scroll-top-button" id="scrollTopBtn">
+        <svg
+          class="arrow-up"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+          />
         </svg>
-        <div class="scroll-top-button" id="scrollTopBtn">
-        <svg class="arrow-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
-        </svg>
-        </div>
+      </div>
     </div>
-
 
     <!-- stories -->
     <div class="stories-wrapper">
-        <button class="nav-btn left" onclick="scrollStories(-1)" aria-label="Previous stories">&#10095;</button>
-        <div class="stories-container" id="storiesContainer">
-            <div class="story" onclick="openStory(0)"><img src="img/latte.png" alt="Story 1" loading="lazy"></div>
-            <div class="story" onclick="openStory(1)"><img src="img/storycoffee.webp" alt="Story 2" loading="lazy"></div>
-            <div class="story" onclick="openStory(2)"><img src="img/videocover.png" alt="Story 3" loading="lazy"></div>
+      <button
+        class="nav-btn left"
+        onclick="scrollStories(-1)"
+        aria-label="Previous stories"
+      >
+        &#10095;
+      </button>
+      <div class="stories-container" id="storiesContainer">
+        <div class="story" onclick="openStory(0)">
+          <img src="img/latte.png" alt="Story 1" loading="lazy" />
         </div>
-        <button class="nav-btn right" onclick="scrollStories(1)" aria-label="Next stories">&#10094;</button>
+        <div class="story" onclick="openStory(1)">
+          <img src="img/storycoffee.webp" alt="Story 2" loading="lazy" />
+        </div>
+        <div class="story" onclick="openStory(2)">
+          <img src="img/videocover.png" alt="Story 3" loading="lazy" />
+        </div>
+      </div>
+      <button
+        class="nav-btn right"
+        onclick="scrollStories(1)"
+        aria-label="Next stories"
+      >
+        &#10094;
+      </button>
     </div>
 
     <div class="modal" id="storyModal">
-        <span class="close" onclick="closeStory()" aria-label="Close story">&times;</span>
-        <div class="mainstory">
-            <div class="progress-bar">
-                <div class="progress" id="progressBar"></div>
-            </div>
-            <img id="storyImage" class="modal-content">
-            <video id="storyVideo" class="modal-content" autoplay style="display: none;"></video>
+      <span class="close" onclick="closeStory()" aria-label="Close story"
+        >&times;</span
+      >
+      <div class="mainstory">
+        <div class="progress-bar">
+          <div class="progress" id="progressBar"></div>
         </div>
-        <div class="pagination" id="pagination"></div>
+        <img id="storyImage" class="modal-content" />
+        <video
+          id="storyVideo"
+          class="modal-content"
+          autoplay
+          style="display: none"
+        ></video>
+      </div>
+      <div class="pagination" id="pagination"></div>
     </div>
     <!-- end of story -->
 
-
-
     <section class="welcome-text">
-        <div class="texts">
-            <div class="text-overlay">خوش اومدین به <span class="aura">بهشت</span> قهوه ها!</div>
-            <p class="text-overlay-under">فقط قبل اومدن به اینجا...</p>
-            <a href="#">یادت نره رزرو کنی!</a>
+      <div class="texts">
+        <div class="text-overlay">
+          خوش اومدین به <span class="aura">بهشت</span> قهوه ها!
         </div>
-        <img src="img/coffee5.png" alt="">
+        <p class="text-overlay-under">فقط قبل اومدن به اینجا...</p>
+        <a href="#">یادت نره رزرو کنی!</a>
+      </div>
+      <img src="img/coffee5.png" alt="" />
     </section>
-    <hr>
+    <hr />
 
     <section class="category" id="category">
-        <h2>دسته بندی محصولات</h2>
-        <div class="container">
-            <div class="category-filters" data-aos="fade-up">
-                <button class="category-btn active" data-category="all">همه</button>
-                <button class="category-btn" data-category="cold">نوشیدنی سرد</button>
-                <button class="category-btn" data-category="warm">نوشیدنی گرم</button>
-                <button class="category-btn" data-category="dessert">دسر ها</button>
-            </div>
+      <h2>دسته بندی محصولات</h2>
+      <div class="container">
+        <div class="category-filters" data-aos="fade-up">
+          <button class="category-btn active" data-category="all">همه</button>
+          <button class="category-btn" data-category="cold">نوشیدنی سرد</button>
+          <button class="category-btn" data-category="warm">نوشیدنی گرم</button>
+          <button class="category-btn" data-category="dessert">دسر ها</button>
         </div>
+      </div>
     </section>
 
     <section class="product">
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" data-category="warm">
-                    <div class="card">
-                        <img src="img/epercco.png" class="card-img-top" alt="محصول ۱">
-                        <div class="card-body">
-                            <h5 class="card-title">قهوه اسپرسو</h5>
-                            <p class="card-text">یک اسپرسوی خاص و خوش‌طعم برای شروع یک روز پرانرژی!</p>
-                            <p class="card-price">۵۰۰۰۰ تومان</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">خرید</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide" data-category="warm">
-                    <div class="card">
-                        <img src="img/cappuccino.png" class="card-img-top" alt="محصول ۱">
-                        <div class="card-body">
-                            <h5 class="card-title">کاپوچینو</h5>
-                            <p class="card-text">طعم دل‌نشین شیر و قهوه با کف خامه‌ای بی‌نظیر.</p>
-                            <p class="card-price">۵۰۰۰۰ تومان</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">خرید</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide" data-category="warm">
-                    <div class="card">
-                        <img src="img/latte2.png" class="card-img-top" alt="محصول ۱">
-                        <div class="card-body">
-                            <h5 class="card-title">لاته کاراملی</h5>
-                            <p class="card-text">یک ترکیب فوق‌العاده از قهوه، شیر و کارامل.</p>
-                            <p class="card-price">۵۰۰۰۰ تومان</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">خرید</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide" data-category="cold">
-                    <div class="card">
-                        <img src="img/latte2.png" class="card-img-top" alt="محصول ۱">
-                        <div class="card-body">
-                            <h5 class="card-title">آیس لاته</h5>
-                            <p class="card-text">یک نوشیدنی سرد و خنک برای روزهای گرم.</p>
-                            <p class="card-price">۵۵۰۰۰ تومان</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">خرید</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide" data-category="dessert">
-                    <div class="card">
-                        <img src="img/cheesecake.png" class="card-img-top" alt="محصول ۱">
-                        <div class="card-body">
-                            <h5 class="card-title">چیزکیک</h5>
-                            <p class="card-text">یک چیزکیک خوشمزه و خامه‌ای برای لذت بردن از لحظات خاص!</p>
-                            <p class="card-price">۶۰۰۰۰ تومان</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">خرید</a>
-                        </div>
-                    </div>
-                </div>
-
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" data-category="warm">
+            <div class="card">
+              <img src="img/epercco.png" class="card-img-top" alt="محصول ۱" />
+              <div class="card-body">
+                <h5 class="card-title">قهوه اسپرسو</h5>
+                <p class="card-text">
+                  یک اسپرسوی خاص و خوش‌طعم برای شروع یک روز پرانرژی!
+                </p>
+                <p class="card-price">۵۰۰۰۰ تومان</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">خرید</a>
+              </div>
             </div>
-            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="swiper-slide" data-category="warm">
+            <div class="card">
+              <img
+                src="img/cappuccino.png"
+                class="card-img-top"
+                alt="محصول ۱"
+              />
+              <div class="card-body">
+                <h5 class="card-title">کاپوچینو</h5>
+                <p class="card-text">
+                  طعم دل‌نشین شیر و قهوه با کف خامه‌ای بی‌نظیر.
+                </p>
+                <p class="card-price">۵۰۰۰۰ تومان</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">خرید</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide" data-category="warm">
+            <div class="card">
+              <img src="img/latte2.png" class="card-img-top" alt="محصول ۱" />
+              <div class="card-body">
+                <h5 class="card-title">لاته کاراملی</h5>
+                <p class="card-text">
+                  یک ترکیب فوق‌العاده از قهوه، شیر و کارامل.
+                </p>
+                <p class="card-price">۵۰۰۰۰ تومان</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">خرید</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide" data-category="cold">
+            <div class="card">
+              <img src="img/latte2.png" class="card-img-top" alt="محصول ۱" />
+              <div class="card-body">
+                <h5 class="card-title">آیس لاته</h5>
+                <p class="card-text">یک نوشیدنی سرد و خنک برای روزهای گرم.</p>
+                <p class="card-price">۵۵۰۰۰ تومان</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">خرید</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide" data-category="dessert">
+            <div class="card">
+              <img
+                src="img/cheesecake.png"
+                class="card-img-top"
+                alt="محصول ۱"
+              />
+              <div class="card-body">
+                <h5 class="card-title">چیزکیک</h5>
+                <p class="card-text">
+                  یک چیزکیک خوشمزه و خامه‌ای برای لذت بردن از لحظات خاص!
+                </p>
+                <p class="card-price">۶۰۰۰۰ تومان</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">خرید</a>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </section>
 
     <a href="products.html" class="moreproduct">همه ی محصولات</a>
-    <hr>
+    <hr />
 
     <section class="reviews">
-        <h2>نظر مشتریان</h2>
+      <h2>نظر مشتریان</h2>
     </section>
     <section class="testimonials">
-        <div class="swiper testimonials-slider">
-            <div class="swiper-wrapper">
-                <!-- Testimonial 1 -->
-                <div class="swiper-slide" >
-                    <div class="testimonial-card">
-                        <div class="client-image">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <div class="client-info">
-                                <h3>علی محمدی</h3>
-                                <span class="client-role">مدیر عامل شرکت آلفا</span>
-                            </div>
-                            <p class="testimonial-text">
-                                همکاری با این تیم تجربه فوق‌العاده‌ای بود. کیفیت کار و تعهد
-                                به زمان‌بندی عالی بود.
-                            </p>
-                            <div class="rating">
-                                <i class="fas fa-star-half"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
+      <div class="swiper testimonials-slider">
+        <div class="swiper-wrapper">
+          <!-- Testimonial 1 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <div class="client-image">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="testimonial-content">
+                <div class="client-info">
+                  <h3>علی محمدی</h3>
+                  <span class="client-role">مدیر عامل شرکت آلفا</span>
                 </div>
-                <!-- Testimonial 2 -->
-                <div class="swiper-slide" >
-                    <div class="testimonial-card">
-                        <div class="client-image">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <div class="client-info">
-                                <h3>مریم حسینی</h3>
-                                <span class="client-role">مدیر بازاریابی</span>
-                            </div>
-                            <p class="testimonial-text">
-                                پروژه ما با بهترین کیفیت و در زمان مقرر تحویل داده شد. قطعاً
-                                همکاری خود را ادامه خواهیم داد.
-                            </p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
+                <p class="testimonial-text">
+                  همکاری با این تیم تجربه فوق‌العاده‌ای بود. کیفیت کار و تعهد به
+                  زمان‌بندی عالی بود.
+                </p>
+                <div class="rating">
+                  <i class="fas fa-star-half"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
                 </div>
-                <!-- Testimonial 3 -->
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="client-image">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <div class="client-info">
-                                <h3>رضا کریمی</h3>
-                                <span class="client-role">مدیر فنی</span>
-                            </div>
-                            <p class="testimonial-text">
-                                خلاقیت و نوآوری در کار این تیم واقعاً قابل تحسین است. نتیجه
-                                کار فراتر از انتظارات ما بود.
-                            </p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <!-- Add Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <div class="client-image">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="testimonial-content">
+                <div class="client-info">
+                  <h3>مریم حسینی</h3>
+                  <span class="client-role">مدیر بازاریابی</span>
+                </div>
+                <p class="testimonial-text">
+                  پروژه ما با بهترین کیفیت و در زمان مقرر تحویل داده شد. قطعاً
+                  همکاری خود را ادامه خواهیم داد.
+                </p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <div class="client-image">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="testimonial-content">
+                <div class="client-info">
+                  <h3>رضا کریمی</h3>
+                  <span class="client-role">مدیر فنی</span>
+                </div>
+                <p class="testimonial-text">
+                  خلاقیت و نوآوری در کار این تیم واقعاً قابل تحسین است. نتیجه
+                  کار فراتر از انتظارات ما بود.
+                </p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
     </section>
-    <hr>
+    <hr />
     <section class="contactustitle" id="contact">
-        <h2>تماس با ما</h2>
+      <h2>تماس با ما</h2>
     </section>
     <section class="contact-section page-transition">
-        <div class="contact-container">
-            <div class="contact-info-section">
-                <ul class="contact-details">
-                    <li>
-                        <i class="fas fa-phone-alt"></i>
-                        <div class="detail-content">
-                            <h3>تماس مستقیم</h3>
-                            <p>۰۹۱۲۳۴۵۶۷۸۹</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <div class="detail-content">
-                            <h3>ایمیل</h3>
-                            <p>info@foodino.ir</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="detail-content">
-                            <h3>آدرس</h3>
-                            <p>تهران، خیابان ولیعصر، ساختمان فودینو</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-clock"></i>
-                        <div class="detail-content">
-                            <h3>ساعات کاری</h3>
-                            <p>شنبه تا پنجشنبه: ۹ صبح تا ۶ عصر</p>
-                        </div>
-                    </li>
-                </ul>
+      <div class="contact-container">
+        <div class="contact-info-section">
+          <ul class="contact-details">
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <div class="detail-content">
+                <h3>تماس مستقیم</h3>
+                <p>۰۹۱۲۳۴۵۶۷۸۹</p>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <div class="detail-content">
+                <h3>ایمیل</h3>
+                <p>info@foodino.ir</p>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="detail-content">
+                <h3>آدرس</h3>
+                <p>تهران، خیابان ولیعصر، ساختمان فودینو</p>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <div class="detail-content">
+                <h3>ساعات کاری</h3>
+                <p>شنبه تا پنجشنبه: ۹ صبح تا ۶ عصر</p>
+              </div>
+            </li>
+          </ul>
 
-                <div class="contact-social">
-                    <h3>ما را در شبکه‌های اجتماعی دنبال کنید</h3>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
+          <div class="contact-social">
+            <h3>ما را در شبکه‌های اجتماعی دنبال کنید</h3>
+            <div class="social-icons">
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Telegram"
+                ><i class="fab fa-telegram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-section">
+          <h2>ارسال پیام</h2>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">نام و نام خانوادگی</label>
+              <input type="text" id="name" name="name" required />
+              <i class="fas fa-user input-icon"></i>
             </div>
 
-            <div class="contact-form-section">
-                <h2>ارسال پیام</h2>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">نام و نام خانوادگی</label>
-                        <input type="text" id="name" name="name" required>
-                        <i class="fas fa-user input-icon"></i>
-                    </div>
+            <div class="form-group">
+              <label for="email">ایمیل</label>
+              <input type="email" id="email" name="email" required />
+              <i class="fas fa-envelope input-icon"></i>
+            </div>
 
-                    <div class="form-group">
-                        <label for="email">ایمیل</label>
-                        <input type="email" id="email" name="email" required>
-                        <i class="fas fa-envelope input-icon"></i>
-                    </div>
+            <div class="form-group">
+              <label for="phone">شماره تماس</label>
+              <input type="tel" id="phone" name="phone" />
+              <i class="fas fa-phone input-icon"></i>
+            </div>
 
-                    <div class="form-group">
-                        <label for="phone">شماره تماس</label>
-                        <input type="tel" id="phone" name="phone">
-                        <i class="fas fa-phone input-icon"></i>
-                    </div>
+            <div class="form-group">
+              <label for="subject">موضوع</label>
+              <input type="text" id="subject" name="subject" required />
+              <i class="fas fa-heading input-icon"></i>
+            </div>
 
-                    <div class="form-group">
-                        <label for="subject">موضوع</label>
-                        <input type="text" id="subject" name="subject" required>
-                        <i class="fas fa-heading input-icon"></i>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">پیام شما</label>
-                        <textarea id="message" name="message" required></textarea>
-                        <i class="fas fa-comment input-icon textera-icon"></i>
-                    </div>
-                    <div class="submit-btn-wrapper">
-                        <button type="submit" class="submit-btn">
-                            <span>ارسال پیام</span>
-                            <i class="fas fa-paper-plane"></i>
-                            <div class="loading-spinner"></div>
-                        </button>
-                    </div>
-                </form>
-                <!-- <div class="success-message">
+            <div class="form-group">
+              <label for="message">پیام شما</label>
+              <textarea id="message" name="message" required></textarea>
+              <i class="fas fa-comment input-icon textera-icon"></i>
+            </div>
+            <div class="submit-btn-wrapper">
+              <button type="submit" class="submit-btn">
+                <span>ارسال پیام</span>
+                <i class="fas fa-paper-plane"></i>
+                <div class="loading-spinner"></div>
+              </button>
+            </div>
+          </form>
+          <!-- <div class="success-message">
                     پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.
                 </div> -->
-            </div>
         </div>
+      </div>
     </section>
     <section class="map-section">
-        <h2>موقعیت ما روی نقشه</h2>
-        <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d381.50253954048964!2d46.35444382667883!3d38.05986930265506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1740904840211!5m2!1sen!2s"
-                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-                title="موقعیت ما روی نقشه">
-            </iframe>
-        </div>
+      <h2>موقعیت ما روی نقشه</h2>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d381.50253954048964!2d46.35444382667883!3d38.05986930265506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1740904840211!5m2!1sen!2s"
+          width="100%"
+          height="400"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          title="موقعیت ما روی نقشه"
+        >
+        </iframe>
+      </div>
     </section>
 
     <section class="buybox">
-        <div class="buybox-container">
-            <div class="buybox-content">
-                <p>یه فنجون قهوه، یه عالمه آرامش! بیا دور از هیاهو، لحظاتتو بهشتی کن!</p>
-                <a href="#" class="btn">یه فنجون آرامش</a>
-            </div>
+      <div class="buybox-container">
+        <div class="buybox-content">
+          <p>
+            یه فنجون قهوه، یه عالمه آرامش! بیا دور از هیاهو، لحظاتتو بهشتی کن!
+          </p>
+          <a href="#" class="btn">یه فنجون آرامش</a>
         </div>
+      </div>
     </section>
 
     <footer>
-        <div class="footer-container">
-            <!-- درباره ما -->
-            <div class="footer-section about">
-                <h3>درباره ما</h3>
-                <p>ما یک تیم خلاق و متخصص هستیم که به ارائه راهکارهای دیجیتال با کیفیت بالا متعهد هستیم.</p>
-                <div class="social-icons">
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <!-- لینک‌های مفید -->
-            <div class="footer-section links">
-                <h3>لینک‌های مفید</h3>
-                <ul>
-                    <li><a href="#">خانه</a></li>
-                    <li><a href="#">خدمات</a></li>
-                    <li><a href="#">نمونه کارها</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">تماس با ما</a></li>
-                </ul>
-            </div>
-
-            <!-- تماس با ما -->
-            <div class="footer-section contact">
-                <h3>تماس با ما</h3>
-                <p><i class="fas fa-phone"></i> ۰۹۱۲۳۴۵۶۷۸۹</p>
-                <p><i class="fas fa-envelope"></i> info@example.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> تهران، خیابان ولیعصر</p>
-            </div>
-
-            <!-- خبرنامه -->
-            <div class="footer-section newsletter">
-                <h3>خبرنامه</h3>
-                <p>برای دریافت آخرین اخبار و تخفیف‌ها در خبرنامه ما عضو شوید.</p>
-                <div class="newsletter-box">
-                    <input type="email" placeholder="ایمیل خود را وارد کنید">
-                    <button>عضویت</button>
-                </div>
-            </div>
+      <div class="footer-container">
+        <!-- درباره ما -->
+        <div class="footer-section about">
+          <h3>درباره ما</h3>
+          <p>
+            ما یک تیم خلاق و متخصص هستیم که به ارائه راهکارهای دیجیتال با کیفیت
+            بالا متعهد هستیم.
+          </p>
+          <div class="social-icons">
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="Telegram"
+              ><i class="fab fa-telegram"></i
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
         </div>
 
-        <!-- کپی‌رایت -->
-        <div class="footer-bottom">
-            <p>© ۱۴۰۴ تمامی حقوق محفوظ است | طراحی شده توسط <a href="#"><img src="img/fodimo.png" alt="fodino"></a></p>
+        <!-- لینک‌های مفید -->
+        <div class="footer-section links">
+          <h3>لینک‌های مفید</h3>
+          <ul>
+            <li><a href="#">خانه</a></li>
+            <li><a href="#">خدمات</a></li>
+            <li><a href="#">نمونه کارها</a></li>
+            <li><a href="#">درباره ما</a></li>
+            <li><a href="#">تماس با ما</a></li>
+          </ul>
         </div>
+
+        <!-- تماس با ما -->
+        <div class="footer-section contact">
+          <h3>تماس با ما</h3>
+          <p><i class="fas fa-phone"></i> ۰۹۱۲۳۴۵۶۷۸۹</p>
+          <p><i class="fas fa-envelope"></i> info@example.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> تهران، خیابان ولیعصر</p>
+        </div>
+
+        <!-- خبرنامه -->
+        <div class="footer-section newsletter">
+          <h3>خبرنامه</h3>
+          <p>برای دریافت آخرین اخبار و تخفیف‌ها در خبرنامه ما عضو شوید.</p>
+          <div class="newsletter-box">
+            <input type="email" placeholder="ایمیل خود را وارد کنید" />
+            <button>عضویت</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- کپی‌رایت -->
+      <div class="footer-bottom">
+        <p>
+          © ۱۴۰۴ تمامی حقوق محفوظ است | طراحی شده توسط
+          <a href="#"><img src="img/fodimo.png" alt="fodino" /></a>
+        </p>
+      </div>
     </footer>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
-        var productSwiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                640: { slidesPerView: 2, spaceBetween: 20 },
-                768: { slidesPerView: 3, spaceBetween: 30 },
-                1024: { slidesPerView: 4, spaceBetween: 40 },
-            },
-        });
-        
-        const testimonialsSwiper = new Swiper('.testimonials-slider', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            centeredSlides: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-                reverseDirection: true,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-            },
-            effect: 'coverflow',
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 2,
-                slideShadows: false,
-            },
-            rtl: true,
-        });
-
-
-        let currentIndex = 0;
-        const stories = ['img/latte.png', 'img/storycoffee.webp','img/coffee.mp4' ];
-        const isVideoStory = [false, false, true];
-        let storyDuration = [5000, 5000, 10000];
-        let progressInterval;
-
-        function openStory(index) {
-            currentIndex = index;
-            const modal = document.getElementById("storyModal");
-            const img = document.getElementById("storyImage");
-            const video = document.getElementById("storyVideo");
-            const progressBar = document.getElementById("progressBar");
-
-            clearInterval(progressInterval);
-            progressBar.style.width = "0%";
-
-            if (isVideoStory[index]) {
-                video.src = stories[index];
-                video.style.display = "block";
-                img.style.display = "none";
-                video.onloadedmetadata = () => startProgress(video.duration * 1000);
-                video.play();
-            } else {
-                img.src = stories[index];
-                img.style.display = "block";
-                video.style.display = "none";
-                startProgress(storyDuration[index]);
-            }
-
-            modal.classList.add("show");
-            document.body.classList.add('modal-open');
-        }
-
-        function startProgress(duration) {
-            const progressBar = document.getElementById("progressBar");
-            let startTime = Date.now();
-            progressInterval = setInterval(() => {
-                let elapsed = Date.now() - startTime;
-                progressBar.style.width = (elapsed / duration) * 100 + "%";
-                if (elapsed >= duration) {
-                    clearInterval(progressInterval);
-                    nextStory();
-                }
-            }, 50);
-        }
-
-        function closeStory() {
-            document.getElementById("storyModal").classList.remove("show");
-            document.body.classList.remove('modal-open');
-            document.getElementById("storyVideo").pause();
-            clearInterval(progressInterval);
-        }
-
-        function scrollStories(direction) {
-            const container = document.getElementById("storiesContainer");
-            container.scrollBy({ left: direction * 100, behavior: 'smooth' });
-        }
-        function nextStory() {
-            if (currentIndex < stories.length - 1) {
-                openStory(currentIndex + 1);
-            } else {
-                closeStory();
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const categoryButtons = document.querySelectorAll(".category-btn");
-            const slides = document.querySelectorAll(".swiper-slide");
-
-            categoryButtons.forEach(button => {
-                button.addEventListener("click", function () {
-                    // حذف کلاس active از همه دکمه‌ها
-                    categoryButtons.forEach(btn => btn.classList.remove("active"));
-                    this.classList.add("active");
-
-                    let category = this.getAttribute("data-category");
-
-                    // اگر همه محصولات انتخاب شده، همه را نمایش بده
-                    if (category === "all") {
-                        slides.forEach(slide => {
-                            slide.style.display = "";
-                        });
-                    } else {
-                        // در غیر این صورت، فقط محصولات دسته انتخاب شده را نمایش بده
-                        slides.forEach(slide => {
-                            if (slide.getAttribute("data-category") === category) {
-                                slide.style.display = "";
-                            } else {
-                                slide.style.display = "none";
-                            }
-                        });
-                    }
-                    
-                    // بازسازی اسلایدر Swiper بعد از تغییر نمایش
-                    if (typeof productSwiper !== 'undefined') {
-                        productSwiper.update();
-                    }
-                });
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const storiesContainer = document.getElementById("storiesContainer");
-            let startX, startY;
-            let threshold = 50; // Minimum distance to be considered a swipe
-            
-            // Touch events for story container
-            storiesContainer.addEventListener("touchstart", function(e) {
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-            }, false);
-            
-            storiesContainer.addEventListener("touchend", function(e) {
-                if (!startX || !startY) return;
-                
-                let endX = e.changedTouches[0].clientX;
-                let endY = e.changedTouches[0].clientY;
-                
-                let diffX = startX - endX;
-                let diffY = startY - endY;
-                
-                // If horizontal swipe is more significant than vertical
-                if (Math.abs(diffX) > Math.abs(diffY)) {
-                    if (Math.abs(diffX) > threshold) {
-                        if (diffX > 0) {
-                            // Swipe left
-                            scrollStories(1);
-                        } else {
-                            // Swipe right
-                            scrollStories(-1);
-                        }
-                    }
-                }
-                
-                startX = null;
-                startY = null;
-            }, false);
-            
-            // Touch events for story modal
-            const storyModal = document.getElementById("storyModal");
-            
-            storyModal.addEventListener("touchstart", function(e) {
-                startX = e.touches[0].clientX;
-            }, false);
-            
-            storyModal.addEventListener("touchend", function(e) {
-                if (!startX) return;
-                
-                let endX = e.changedTouches[0].clientX;
-                let diffX = startX - endX;
-                
-                if (Math.abs(diffX) > threshold) {
-                    if (diffX > 0) {
-                        // Swipe left - next story
-                        nextStory();
-                    } else {
-                        // Swipe right - previous story
-                        if (currentIndex > 0) {
-                            clearInterval(progressInterval);
-                            openStory(currentIndex - 1);
-                        } else {
-                            closeStory();
-                        }
-                    }
-                }
-                
-                startX = null;
-            }, false);
-            
-            // Adjust story modal size based on device orientation
-            window.addEventListener("resize", adjustStoryModalSize);
-            window.addEventListener("orientationchange", adjustStoryModalSize);
-            
-            function adjustStoryModalSize() {
-                const mainstory = document.querySelector(".mainstory");
-                if (window.innerWidth <= 576) {
-                    mainstory.style.width = "90%";
-                    mainstory.style.height = "auto";
-                    mainstory.style.maxHeight = "80vh";
-                } else {
-                    mainstory.style.width = "400px";
-                    mainstory.style.height = "690px";
-                    mainstory.style.maxHeight = "";
-                }
-            }
-            
-            // Initialize sizes
-            adjustStoryModalSize();
-        });
-
-
-
-
-        // Scroll to top functionality
-         // Get DOM elements
-    const scrollContainer = document.getElementById('scrollTopContainer');
-    const scrollButton = document.getElementById('scrollTopBtn');
-    const progressCircle = document.getElementById('progressCircle');
-    
-    // Calculate circle properties
-    const radius = progressCircle.getAttribute('r');
-    const circumference = 2 * Math.PI * radius;
-    
-    // Set the initial stroke-dasharray
-    progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
-    progressCircle.style.strokeDashoffset = circumference;
-    
-    // Debounce function to limit execution frequency
-    function debounce(func, wait = 10) {
-      let timeout;
-      return function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, arguments), wait);
-      };
-    }
-    
-    // Update progress and button visibility
-    function updateScroll() {
-      // Calculate scroll position
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercentage = Math.min(scrollTop / scrollHeight, 1);
-      
-      // Update progress circle
-      const dashoffset = circumference - (scrollPercentage * circumference);
-      progressCircle.style.strokeDashoffset = dashoffset;
-      
-      // Show/hide button based on scroll position
-      if (scrollTop > 200) {
-        scrollContainer.classList.add('visible');
-      } else {
-        scrollContainer.classList.remove('visible');
-      }
-    }
-    
-    // Scroll to top with smooth animation
-    function scrollToTop() {
-      // Using the smooth scroll behavior
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      var productSwiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          640: { slidesPerView: 2, spaceBetween: 20 },
+          768: { slidesPerView: 3, spaceBetween: 30 },
+          1024: { slidesPerView: 4, spaceBetween: 40 },
+        },
       });
-    }
-    
-    // Event listeners
-    window.addEventListener('scroll', debounce(updateScroll, 5));
-    scrollButton.addEventListener('click', scrollToTop);
-    
-    // Initial update
-    updateScroll();
 
+      const testimonialsSwiper = new Swiper(".testimonials-slider", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          reverseDirection: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
+        effect: "coverflow",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2,
+          slideShadows: false,
+        },
+        rtl: true,
+      });
 
-    // Initialize Lottie animation
-    lottie.loadAnimation({
-    container: document.getElementById("loading"), // Target the loading container
-    renderer: "svg", // Render as SVG
-    loop: true, // Loop the animation
-    autoplay: true, // Start automatically
-    path: "js/animation.json", // Path to the animation JSON file
-    });
+      let currentIndex = 0;
+      const stories = [
+        "img/latte.png",
+        "img/storycoffee.webp",
+        "img/coffee.mp4",
+      ];
+      const isVideoStory = [false, false, true];
+      let storyDuration = [5000, 5000, 10000];
+      let progressInterval;
 
-    // Simulate removing the loading screen after 3 seconds
-    setTimeout(() => {
-  document.getElementById("loading-container").style.display = "none";
-}, 5000); // 10 seconds
+      function openStory(index) {
+        currentIndex = index;
+        const modal = document.getElementById("storyModal");
+        const img = document.getElementById("storyImage");
+        const video = document.getElementById("storyVideo");
+        const progressBar = document.getElementById("progressBar");
 
+        clearInterval(progressInterval);
+        progressBar.style.width = "0%";
 
-</script>
+        if (isVideoStory[index]) {
+          video.src = stories[index];
+          video.style.display = "block";
+          img.style.display = "none";
+          video.onloadedmetadata = () => startProgress(video.duration * 1000);
+          video.play();
+        } else {
+          img.src = stories[index];
+          img.style.display = "block";
+          video.style.display = "none";
+          startProgress(storyDuration[index]);
+        }
 
-</body>
+        modal.classList.add("show");
+        document.body.classList.add("modal-open");
+      }
 
+      function startProgress(duration) {
+        const progressBar = document.getElementById("progressBar");
+        let startTime = Date.now();
+        progressInterval = setInterval(() => {
+          let elapsed = Date.now() - startTime;
+          progressBar.style.width = (elapsed / duration) * 100 + "%";
+          if (elapsed >= duration) {
+            clearInterval(progressInterval);
+            nextStory();
+          }
+        }, 50);
+      }
+
+      function closeStory() {
+        document.getElementById("storyModal").classList.remove("show");
+        document.body.classList.remove("modal-open");
+        document.getElementById("storyVideo").pause();
+        clearInterval(progressInterval);
+      }
+
+      function scrollStories(direction) {
+        const container = document.getElementById("storiesContainer");
+        container.scrollBy({ left: direction * 100, behavior: "smooth" });
+      }
+      function nextStory() {
+        if (currentIndex < stories.length - 1) {
+          openStory(currentIndex + 1);
+        } else {
+          closeStory();
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const categoryButtons = document.querySelectorAll(".category-btn");
+        const slides = document.querySelectorAll(".swiper-slide");
+
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // حذف کلاس active از همه دکمه‌ها
+            categoryButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            let category = this.getAttribute("data-category");
+
+            // اگر همه محصولات انتخاب شده، همه را نمایش بده
+            if (category === "all") {
+              slides.forEach((slide) => {
+                slide.style.display = "";
+              });
+            } else {
+              // در غیر این صورت، فقط محصولات دسته انتخاب شده را نمایش بده
+              slides.forEach((slide) => {
+                if (slide.getAttribute("data-category") === category) {
+                  slide.style.display = "";
+                } else {
+                  slide.style.display = "none";
+                }
+              });
+            }
+
+            // بازسازی اسلایدر Swiper بعد از تغییر نمایش
+            if (typeof productSwiper !== "undefined") {
+              productSwiper.update();
+            }
+          });
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const storiesContainer = document.getElementById("storiesContainer");
+        let startX, startY;
+        let threshold = 50; // Minimum distance to be considered a swipe
+
+        // Touch events for story container
+        storiesContainer.addEventListener(
+          "touchstart",
+          function (e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+          },
+          false
+        );
+
+        storiesContainer.addEventListener(
+          "touchend",
+          function (e) {
+            if (!startX || !startY) return;
+
+            let endX = e.changedTouches[0].clientX;
+            let endY = e.changedTouches[0].clientY;
+
+            let diffX = startX - endX;
+            let diffY = startY - endY;
+
+            // If horizontal swipe is more significant than vertical
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+              if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                  // Swipe left
+                  scrollStories(1);
+                } else {
+                  // Swipe right
+                  scrollStories(-1);
+                }
+              }
+            }
+
+            startX = null;
+            startY = null;
+          },
+          false
+        );
+
+        // Touch events for story modal
+        const storyModal = document.getElementById("storyModal");
+
+        storyModal.addEventListener(
+          "touchstart",
+          function (e) {
+            startX = e.touches[0].clientX;
+          },
+          false
+        );
+
+        storyModal.addEventListener(
+          "touchend",
+          function (e) {
+            if (!startX) return;
+
+            let endX = e.changedTouches[0].clientX;
+            let diffX = startX - endX;
+
+            if (Math.abs(diffX) > threshold) {
+              if (diffX > 0) {
+                // Swipe left - next story
+                nextStory();
+              } else {
+                // Swipe right - previous story
+                if (currentIndex > 0) {
+                  clearInterval(progressInterval);
+                  openStory(currentIndex - 1);
+                } else {
+                  closeStory();
+                }
+              }
+            }
+
+            startX = null;
+          },
+          false
+        );
+
+        // Adjust story modal size based on device orientation
+        window.addEventListener("resize", adjustStoryModalSize);
+        window.addEventListener("orientationchange", adjustStoryModalSize);
+
+        function adjustStoryModalSize() {
+          const mainstory = document.querySelector(".mainstory");
+          if (window.innerWidth <= 576) {
+            mainstory.style.width = "90%";
+            mainstory.style.height = "auto";
+            mainstory.style.maxHeight = "80vh";
+          } else {
+            mainstory.style.width = "400px";
+            mainstory.style.height = "690px";
+            mainstory.style.maxHeight = "";
+          }
+        }
+
+        // Initialize sizes
+        adjustStoryModalSize();
+      });
+
+      // Scroll to top functionality
+      // Get DOM elements
+      const scrollContainer = document.getElementById("scrollTopContainer");
+      const scrollButton = document.getElementById("scrollTopBtn");
+      const progressCircle = document.getElementById("progressCircle");
+
+      // Calculate circle properties
+      const radius = progressCircle.getAttribute("r");
+      const circumference = 2 * Math.PI * radius;
+
+      // Set the initial stroke-dasharray
+      progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+      progressCircle.style.strokeDashoffset = circumference;
+
+      // Debounce function to limit execution frequency
+      function debounce(func, wait = 10) {
+        let timeout;
+        return function () {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, arguments), wait);
+        };
+      }
+
+      // Update progress and button visibility
+      function updateScroll() {
+        // Calculate scroll position
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrollPercentage = Math.min(scrollTop / scrollHeight, 1);
+
+        // Update progress circle
+        const dashoffset = circumference - scrollPercentage * circumference;
+        progressCircle.style.strokeDashoffset = dashoffset;
+
+        // Show/hide button based on scroll position
+        if (scrollTop > 200) {
+          scrollContainer.classList.add("visible");
+        } else {
+          scrollContainer.classList.remove("visible");
+        }
+      }
+
+      // Scroll to top with smooth animation
+      function scrollToTop() {
+        // Using the smooth scroll behavior
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Event listeners
+      window.addEventListener("scroll", debounce(updateScroll, 5));
+      scrollButton.addEventListener("click", scrollToTop);
+
+      // Initial update
+      updateScroll();
+
+      // Initialize Lottie animation
+      lottie.loadAnimation({
+        container: document.getElementById("loading"), // Target the loading container
+        renderer: "svg", // Render as SVG
+        loop: true, // Loop the animation
+        autoplay: true, // Start automatically
+        path: "js/animation.json", // Path to the animation JSON file
+      });
+
+      // Simulate removing the loading screen after 3 seconds
+      setTimeout(() => {
+        document.getElementById("loading-container").style.display = "none";
+      }, 5000); // 10 seconds
+    </script>
+  </body>
 </html>
