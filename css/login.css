@@ -395,6 +395,29 @@ body {
         padding: 10px;
         font-size: 15px;
     }
+
+    .login-container {
+        padding: 5px;
+    }
+
+    .login-box {
+        padding: 40px 15px 15px;
+    }
+
+    .social-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .number-input {
+        padding: 8px 30px 8px 8px;
+        font-size: 14px;
+    }
+
+    .login-title {
+        font-size: 16px;
+    }
 }
 
 

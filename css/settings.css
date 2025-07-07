@@ -174,3 +174,13 @@ button:hover {
     margin: 0 10px;
   }
 }
+
+@media (max-width: 576px) {
+  .settings-menu {
+    padding: 15px;
+  }
+
+  .settings-content {
+    padding: 15px;
+  }
+}

@@ -271,6 +271,14 @@ body {
     padding: 10px 20px;
     font-size: 14px;
     margin: 0 5px;
+    color: #000;
+  }
+  .contact-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  .contact-form-section {
+    margin-top: 2rem;
   }
 }
 
@@ -398,8 +406,8 @@ body {
 }
 
 .nav-item span {
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
   transition: all 0.3s ease;
   text-align: center;
   white-space: nowrap;
@@ -1665,6 +1673,7 @@ body.modal-open {
   font-size: 16px;
 }
 
+
 .form-group textarea {
   resize: none;
   height: 200px;
@@ -2584,7 +2593,15 @@ footer {
     align-items: center;
     padding: 2rem 1rem;
   }
-
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 80%;
+    padding: 10px 25px;
+    font-size: 14px;
+  }
   .contact-container {
     display: flex;
     flex-direction: column;

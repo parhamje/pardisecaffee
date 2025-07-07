@@ -113,3 +113,21 @@ td button {
 td button:hover {
     background-color: #218c74;
 }
+
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filters select, .filters input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .status-filter, .date-filter {
+        margin-right: 0;
+        left: 0;
+        width: 100%;
+    }
+}

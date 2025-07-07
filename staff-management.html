@@ -37,9 +37,17 @@
 
     <div class="main-content">
         <div class="header">
+            <button class="hamburger-menu" id="hamburger-menu">
+                <i class="fa fa-bars"></i>
+            </button>
             <h1>مدیریت باریستاها و برنامه‌ریزی شیفت‌های کاری</h1>
-            <div class="user-info">
-                <img src="img/user.png" alt="User">
+            <div class="user-info dropdown-container">
+                <img src="img/user.png" alt="User" id="user-profile-img">
+                <div class="dropdown-content" id="user-dropdown">
+                    <a href="#">پروفایل</a>
+                    <a href="settings.html">تنظیمات</a>
+                    <a href="login.html">خروج</a>
+                </div>
                 <div>
                     <p class="user-name">مدیر</p>
                     <p class="user-role">ادمین</p>
@@ -552,5 +560,27 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script src="js/staff-management.js"></script>
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const sidebar = document.querySelector('.sidebar');
+
+        hamburgerMenu.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        const userProfileImg = document.getElementById('user-profile-img');
+        const userDropdown = document.getElementById('user-dropdown');
+
+        userProfileImg.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the window click event from firing immediately
+            userDropdown.classList.toggle('show');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!userDropdown.contains(event.target) && userDropdown.classList.contains('show')) {
+                userDropdown.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>

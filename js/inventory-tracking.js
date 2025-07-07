@@ -128,11 +128,11 @@ function renderInventory(categoryValue = "", stockValue = "") {
         }
         
         row.innerHTML = `
-            <td>${item.name}</td>
-            <td>${item.category}</td>
-            <td>${item.quantity} ${item.unit}</td>
-            <td><span class="status-badge ${statusClass}">${statusText}</span></td>
-            <td>
+            <td data-label="کالا">${item.name}</td>
+            <td data-label="دسته‌بندی">${item.category}</td>
+            <td data-label="تعداد">${item.quantity} ${item.unit}</td>
+            <td data-label="وضعیت"><span class="status-badge ${statusClass}">${statusText}</span></td>
+            <td data-label="عملیات">
                 <button class="btn update-btn" data-id="${item.id}">بروزرسانی</button>
             </td>
         `;
